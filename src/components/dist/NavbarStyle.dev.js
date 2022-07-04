@@ -72,7 +72,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: flex-end;\n\t", "\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: flex-end;\n\t", ";\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -92,7 +92,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tdisplay: flex;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tdisplay: flex;\n\talign-items: center;\n\t", ";\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -112,7 +112,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tmin-height: 60px;\n\t", "\n\tbackground-color: black;\n\tcolor: white;\n"]);
+  var data = _taggedTemplateLiteral(["\n\theight: 60px;\n\t", ";\n\tbackground-color: black;\n\tcolor: white;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -123,7 +123,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var NavContainer = _styledComponents["default"].div(_templateObject(), (0, _responsive.mobile)({
+var NavContainer = _styledComponents["default"].div(_templateObject(), (0, _responsive.tablet)({
   height: '50px'
 }));
 
@@ -135,7 +135,9 @@ var Wrapper = _styledComponents["default"].div(_templateObject2(), (0, _responsi
 
 exports.Wrapper = Wrapper;
 
-var Left = _styledComponents["default"].div(_templateObject3());
+var Left = _styledComponents["default"].div(_templateObject3(), (0, _responsive.mobile)({
+  display: 'none'
+}));
 
 exports.Left = Left;
 
@@ -144,8 +146,7 @@ var Center = _styledComponents["default"].div(_templateObject4());
 exports.Center = Center;
 
 var Right = _styledComponents["default"].div(_templateObject5(), (0, _responsive.mobile)({
-  flex: 2,
-  justifyContent: 'center'
+  flex: 2
 }));
 
 exports.Right = Right;

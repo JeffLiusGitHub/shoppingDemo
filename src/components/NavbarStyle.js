@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { mobile, tablet } from '../responsive';
 
 export const NavContainer = styled.div`
-	min-height: 60px;
-	${mobile({ height: '50px' })}
+	height: 60px;
+	${tablet({ height: '50px' })};
 	background-color: black;
 	color: white;
 `;
@@ -18,6 +18,7 @@ export const Left = styled.div`
 	flex: 1;
 	display: flex;
 	align-items: center;
+	${mobile({ display: 'none' })};
 `;
 export const Center = styled.div`
 	flex: 1;
@@ -28,7 +29,7 @@ export const Right = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
-	${mobile({ flex: 2, justifyContent: 'center' })}
+	${mobile({ flex: 2 })};
 `;
 export const Language = styled.span`
 	font-size: 14px;
@@ -63,7 +64,7 @@ export const MenuItem = styled.div`
 	cursor: pointer;
 	margin: 15px;
 	${tablet({ fontSize: '10px', margin: '10px' })};
-	${mobile({ fontSize: '9px',fontWeight:'900', margin: '6px' })}
+	${mobile({ fontSize: '9px', fontWeight: '900', margin: '6px' })}
 `;
 export const CartIcon = styled.div`
 	transition: all 0.2s ease-out;
