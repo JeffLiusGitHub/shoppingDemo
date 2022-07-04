@@ -127,7 +127,7 @@ const Product = () => {
 							<Filter>
 								<FilterTitle>Size</FilterTitle>
 								<FilterSize onChange={(event) => setSize(event.target.value)}>
-									<FilterSizeOption disabled selected="selected">
+									<FilterSizeOption disabled value="defaultValue">
 										Pick up a Size
 									</FilterSizeOption>
 									{productDetails.size?.map((size) => (

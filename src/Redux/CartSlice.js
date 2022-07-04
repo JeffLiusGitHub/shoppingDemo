@@ -51,7 +51,6 @@ const cartSlice = createSlice({
 			);
 			if (productIndex !== -1) {
 				const currentProduct = state.products[productIndex];
-				console.log(currentProduct);
 				if (currentProduct.quantity === 1) {
 					const newProductArray = state.products.filter(
 						(p) =>

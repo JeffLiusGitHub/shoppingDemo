@@ -51,7 +51,6 @@ var cartSlice = (0, _toolkit.createSlice)({
 
       if (productIndex !== -1) {
         var currentProduct = state.products[productIndex];
-        console.log(currentProduct);
 
         if (currentProduct.quantity === 1) {
           var newProductArray = state.products.filter(function (p) {

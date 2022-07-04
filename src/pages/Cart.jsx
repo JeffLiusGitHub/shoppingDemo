@@ -52,14 +52,10 @@ const Cart = () => {
 		setToken(token);
 	};
 	const addOnProduct = (id, size, color) => {
-		console.log(id);
 		dispatch(addProductQuantity({ id: id, size: size, color: color }));
-		console.log('add');
 	};
 	const deductOnProduct = (id, size, color) => {
-		console.log(id);
 		dispatch(deductProductQuantity({ id: id, size: size, color: color }));
-		console.log('deduct');
 	};
 	useEffect(() => {
 		const request = async () => {
@@ -109,7 +105,7 @@ const Cart = () => {
 				<Bottom>
 					<Info>
 						{cart?.products.map((p) => (
-							<Product>
+							<Product key={p.id}>
 								<Link
 									to={`/product/${p.id}`}
 									style={{ textDecoration: 'none', color: 'black', flex: 2 }}
