@@ -116,8 +116,10 @@ const Product = () => {
 						<FilterContainer>
 							<Filter>
 								<FilterTitle>Color</FilterTitle>
+
 								{productDetails.color?.map((color) => (
 									<FilterColor
+										defaultValue={'color'}
 										color={color}
 										key={color}
 										onClick={() => setColor(color)}
@@ -127,7 +129,11 @@ const Product = () => {
 							<Filter>
 								<FilterTitle>Size</FilterTitle>
 								<FilterSize onChange={(event) => setSize(event.target.value)}>
-									<FilterSizeOption disabled value="defaultValue">
+									<FilterSizeOption
+										defaultValue="pick up a Size"
+										disabled
+										selected
+									>
 										Pick up a Size
 									</FilterSizeOption>
 									{productDetails.size?.map((size) => (

@@ -32,7 +32,7 @@ const ProductList = () => {
 				<Filter>
 					<FilterText>Filter Products:</FilterText>
 					<Select name="color" onChange={filterChangeHandler}>
-						<Option disabled value="defaultValue">
+						<Option defaultValue="Color" disabled selected>
 							Color
 						</Option>
 						{colorList?.map((color) => (
@@ -42,7 +42,7 @@ const ProductList = () => {
 						))}
 					</Select>
 					<Select name="size" onChange={filterChangeHandler}>
-						<Option disabled value="defaultValue">
+						<Option defaultValue="Size" disabled selected>
 							Size
 						</Option>
 						{sizeList?.map((size) => (

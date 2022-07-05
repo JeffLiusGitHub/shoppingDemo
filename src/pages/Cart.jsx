@@ -40,6 +40,7 @@ import {
 	Button,
 	Container,
 } from './CartStyle';
+import Snackbar from '../components/Snackbar';
 
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
@@ -57,24 +58,24 @@ const Cart = () => {
 	const deductOnProduct = (id, size, color) => {
 		dispatch(deductProductQuantity({ id: id, size: size, color: color }));
 	};
-	useEffect(() => {
-		const request = async () => {
-			try {
-				const req = await userRequest.post('checkout/payment', {
-					tokenId: token.id,
-					amount: cart.total * 100,
-				});
-				navigate('/success', {
-					stripeData: req.data,
-					products: cart,
-				});
-				token && request();
-			} catch (error) {
-				console.log(error);
-			}
-			request();
-		};
-	}, [token, cart, navigate]);
+	// useEffect(() => {
+	// 	const request = async () => {
+	// 		try {
+	// 			const req = await userRequest.post('checkout/payment', {
+	// 				tokenId: token.id,
+	// 				amount: cart.total * 100,
+	// 			});
+	// 			navigate('/success', {
+	// 				stripeData: req.data,
+	// 				products: cart,
+	// 			});
+	// 			token && request();
+	// 		} catch (error) {
+	// 			console.log(error);
+	// 		}
+	// 		request();
+	// 	};
+	// }, [token, cart, navigate]);
 
 	return (
 		<Container>

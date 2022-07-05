@@ -86,10 +86,15 @@ export const FilterColor = styled.div`
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	border: 1px solid rgba(0, 0, 0, 0.2);
+	border: 1px solid rgba(0, 0, 0, 0.4);
 	background-color: ${(props) => props.color};
 	margin: 0px 5px;
 	cursor: pointer;
+	:active {
+		border: 3px solid green;
+		transition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;
+		transform: scale(0.9);
+	}
 `;
 
 export const FilterSize = styled.select`

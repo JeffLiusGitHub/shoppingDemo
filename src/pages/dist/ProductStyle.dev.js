@@ -102,7 +102,7 @@ function _templateObject14() {
 }
 
 function _templateObject13() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.2);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.4);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n\t:active {\n\t\tborder: 3px solid green;\n\t\ttransition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;\n\t\ttransform: scale(0.9);\n\t}\n"]);
 
   _templateObject13 = function _templateObject13() {
     return data;

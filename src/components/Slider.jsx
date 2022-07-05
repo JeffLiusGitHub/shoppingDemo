@@ -109,7 +109,7 @@ const Slider = () => {
 	);
 
 	useEffect(() => {
-		let interval = setInterval(handleClick, 5000);
+		let interval = setInterval(handleClick, 7000);
 		return () => clearInterval(interval);
 	}, [handleClick]);
 	return (
