@@ -74,12 +74,23 @@ export const FilterContainer = styled.div`
 
 export const Filter = styled.div`
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 `;
 
 export const FilterTitle = styled.span`
 	font-size: 20px;
 	font-weight: 200;
+`;
+export const ColorContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+export const ColorFilter = styled.div`
+	display: flex;
+	margin-top: 20px;
+`;
+export const ColorDisplayValue = styled.span`
+	font-weight: 500;
 `;
 
 export const FilterColor = styled.div`

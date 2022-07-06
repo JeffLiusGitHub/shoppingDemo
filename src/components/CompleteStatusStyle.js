@@ -3,6 +3,7 @@ import { mobile, tablet } from '../responsive';
 
 export const OutContainer = styled.div`
 	height: 30%;
+	min-height: 300px;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;

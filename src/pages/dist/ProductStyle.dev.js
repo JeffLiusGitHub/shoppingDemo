@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ShippingInfoContainer = exports.Button = exports.Amount = exports.AmountContainer = exports.AddContainer = exports.Error = exports.ErrorContainer = exports.FilterSizeOption = exports.FilterSize = exports.FilterColor = exports.FilterTitle = exports.Filter = exports.FilterContainer = exports.Price = exports.Discount = exports.Desc = exports.Title = exports.InfoContainer = exports.Image = exports.ImgContainer = exports.Wrapper = exports.Container = void 0;
+exports.ShippingInfoContainer = exports.Button = exports.Amount = exports.AmountContainer = exports.AddContainer = exports.Error = exports.ErrorContainer = exports.FilterSizeOption = exports.FilterSize = exports.FilterColor = exports.ColorDisplayValue = exports.ColorFilter = exports.ColorContainer = exports.FilterTitle = exports.Filter = exports.FilterContainer = exports.Price = exports.Discount = exports.Desc = exports.Title = exports.InfoContainer = exports.Image = exports.ImgContainer = exports.Wrapper = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -11,8 +11,38 @@ var _responsive = require("../responsive");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _templateObject22() {
+function _templateObject25() {
   var data = _taggedTemplateLiteral(["\n\tmargin-top: 20px;\n\twidth: 70%;\n\t", "\n"]);
+
+  _templateObject25 = function _templateObject25() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject24() {
+  var data = _taggedTemplateLiteral(["\n\tpadding: 15px;\n\tborder: 2px solid teal;\n\tbackground-color: white;\n\tcursor: pointer;\n\tfont-size: 18px;\n\tfont-weight: 500;\n\t&:hover {\n\t\tbackground-color: #f8f4f4;\n\t}\n"]);
+
+  _templateObject24 = function _templateObject24() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject23() {
+  var data = _taggedTemplateLiteral(["\n\twidth: 30px;\n\theight: 30px;\n\tborder-radius: 10px;\n\tborder: 1px solid teal;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tmargin: 0px 5px;\n"]);
+
+  _templateObject23 = function _templateObject23() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject22() {
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\talign-items: center;\n\tfont-weight: 700;\n"]);
 
   _templateObject22 = function _templateObject22() {
     return data;
@@ -22,7 +52,7 @@ function _templateObject22() {
 }
 
 function _templateObject21() {
-  var data = _taggedTemplateLiteral(["\n\tpadding: 15px;\n\tborder: 2px solid teal;\n\tbackground-color: white;\n\tcursor: pointer;\n\tfont-size: 18px;\n\tfont-weight: 500;\n\t&:hover {\n\t\tbackground-color: #f8f4f4;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 70%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\t", "\n"]);
 
   _templateObject21 = function _templateObject21() {
     return data;
@@ -32,7 +62,7 @@ function _templateObject21() {
 }
 
 function _templateObject20() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 30px;\n\theight: 30px;\n\tborder-radius: 10px;\n\tborder: 1px solid teal;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n\tmargin: 0px 5px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tcolor: green;\n\tfont-weight: 300;\n\tfont-size: 20px;\n"]);
 
   _templateObject20 = function _templateObject20() {
     return data;
@@ -42,7 +72,7 @@ function _templateObject20() {
 }
 
 function _templateObject19() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\talign-items: center;\n\tfont-weight: 700;\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 70%;\n\tmargin: 30px 0px;\n\t", "\n"]);
 
   _templateObject19 = function _templateObject19() {
     return data;
@@ -52,7 +82,7 @@ function _templateObject19() {
 }
 
 function _templateObject18() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 70%;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: space-between;\n\t", "\n"]);
+  var data = _taggedTemplateLiteral([""]);
 
   _templateObject18 = function _templateObject18() {
     return data;
@@ -62,7 +92,7 @@ function _templateObject18() {
 }
 
 function _templateObject17() {
-  var data = _taggedTemplateLiteral(["\n\tcolor: green;\n\tfont-weight: 300;\n\tfont-size: 20px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tmargin-left: 10px;\n\tpadding: 5px;\n"]);
 
   _templateObject17 = function _templateObject17() {
     return data;
@@ -72,7 +102,7 @@ function _templateObject17() {
 }
 
 function _templateObject16() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 70%;\n\tmargin: 30px 0px;\n\t", "\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.4);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n\t:active {\n\t\tborder: 3px solid green;\n\t\ttransition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;\n\t\ttransform: scale(0.9);\n\t}\n"]);
 
   _templateObject16 = function _templateObject16() {
     return data;
@@ -82,7 +112,7 @@ function _templateObject16() {
 }
 
 function _templateObject15() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["\n\tfont-weight: 500;\n"]);
 
   _templateObject15 = function _templateObject15() {
     return data;
@@ -92,7 +122,7 @@ function _templateObject15() {
 }
 
 function _templateObject14() {
-  var data = _taggedTemplateLiteral(["\n\tmargin-left: 10px;\n\tpadding: 5px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tmargin-top: 20px;\n"]);
 
   _templateObject14 = function _templateObject14() {
     return data;
@@ -102,7 +132,7 @@ function _templateObject14() {
 }
 
 function _templateObject13() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.4);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n\t:active {\n\t\tborder: 3px solid green;\n\t\ttransition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;\n\t\ttransform: scale(0.9);\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex-direction: column;\n"]);
 
   _templateObject13 = function _templateObject13() {
     return data;
@@ -122,7 +152,7 @@ function _templateObject12() {
 }
 
 function _templateObject11() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\talign-items: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\talign-items: flex-start;\n"]);
 
   _templateObject11 = function _templateObject11() {
     return data;
@@ -295,49 +325,61 @@ var FilterTitle = _styledComponents["default"].span(_templateObject12());
 
 exports.FilterTitle = FilterTitle;
 
-var FilterColor = _styledComponents["default"].div(_templateObject13(), function (props) {
+var ColorContainer = _styledComponents["default"].div(_templateObject13());
+
+exports.ColorContainer = ColorContainer;
+
+var ColorFilter = _styledComponents["default"].div(_templateObject14());
+
+exports.ColorFilter = ColorFilter;
+
+var ColorDisplayValue = _styledComponents["default"].span(_templateObject15());
+
+exports.ColorDisplayValue = ColorDisplayValue;
+
+var FilterColor = _styledComponents["default"].div(_templateObject16(), function (props) {
   return props.color;
 });
 
 exports.FilterColor = FilterColor;
 
-var FilterSize = _styledComponents["default"].select(_templateObject14());
+var FilterSize = _styledComponents["default"].select(_templateObject17());
 
 exports.FilterSize = FilterSize;
 
-var FilterSizeOption = _styledComponents["default"].option(_templateObject15());
+var FilterSizeOption = _styledComponents["default"].option(_templateObject18());
 
 exports.FilterSizeOption = FilterSizeOption;
 
-var ErrorContainer = _styledComponents["default"].div(_templateObject16(), (0, _responsive.mobile)({
+var ErrorContainer = _styledComponents["default"].div(_templateObject19(), (0, _responsive.mobile)({
   width: '100%'
 }));
 
 exports.ErrorContainer = ErrorContainer;
 
-var Error = _styledComponents["default"].div(_templateObject17());
+var Error = _styledComponents["default"].div(_templateObject20());
 
 exports.Error = Error;
 
-var AddContainer = _styledComponents["default"].div(_templateObject18(), (0, _responsive.laptop)({
+var AddContainer = _styledComponents["default"].div(_templateObject21(), (0, _responsive.laptop)({
   width: '100%'
 }));
 
 exports.AddContainer = AddContainer;
 
-var AmountContainer = _styledComponents["default"].div(_templateObject19());
+var AmountContainer = _styledComponents["default"].div(_templateObject22());
 
 exports.AmountContainer = AmountContainer;
 
-var Amount = _styledComponents["default"].span(_templateObject20());
+var Amount = _styledComponents["default"].span(_templateObject23());
 
 exports.Amount = Amount;
 
-var Button = _styledComponents["default"].button(_templateObject21());
+var Button = _styledComponents["default"].button(_templateObject24());
 
 exports.Button = Button;
 
-var ShippingInfoContainer = _styledComponents["default"].div(_templateObject22(), (0, _responsive.laptop)({
+var ShippingInfoContainer = _styledComponents["default"].div(_templateObject25(), (0, _responsive.laptop)({
   width: '100%'
 }));
 

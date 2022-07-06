@@ -72,7 +72,7 @@ function _templateObject24() {
 }
 
 function _templateObject23() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tborder: 0.5px solid lightgray;\n\tborder-radius: 10px;\n\tpadding: 20px;\n\theight: 50vh;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tborder: 0.5px solid lightgray;\n\tborder-radius: 10px;\n\tpadding: 20px;\n\theight: 50vh;\n\tmin-height:400px;\n"]);
 
   _templateObject23 = function _templateObject23() {
     return data;

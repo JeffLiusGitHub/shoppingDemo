@@ -82,7 +82,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\theight: 30%;\n\tpadding: 20px;\n\tdisplay: flex;\n\tflex-direction: column;\n"]);
+  var data = _taggedTemplateLiteral(["\n\theight: 30%;\n\tmin-height: 300px;\n\tpadding: 20px;\n\tdisplay: flex;\n\tflex-direction: column;\n"]);
 
   _templateObject = function _templateObject() {
     return data;

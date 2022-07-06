@@ -20,8 +20,11 @@ import {
 	Price,
 	FilterContainer,
 	Filter,
+	ColorContainer,
+	ColorDisplayValue,
 	FilterTitle,
 	FilterColor,
+	ColorFilter,
 	FilterSize,
 	FilterSizeOption,
 	ErrorContainer,
@@ -115,16 +118,21 @@ const Product = () => {
 						<Price>$ {productDetails.price}</Price>
 						<FilterContainer>
 							<Filter>
-								<FilterTitle>Color</FilterTitle>
-
-								{productDetails.color?.map((color) => (
-									<FilterColor
-										defaultValue={'color'}
-										color={color}
-										key={color}
-										onClick={() => setColor(color)}
-									/>
-								))}
+								<ColorContainer>
+									<FilterTitle>
+										Color: <ColorDisplayValue>{color}</ColorDisplayValue>
+									</FilterTitle>
+									<ColorFilter>
+										{productDetails.color?.map((color) => (
+											<FilterColor
+												defaultValue={'color'}
+												color={color}
+												key={color}
+												onClick={() => setColor(color)}
+											/>
+										))}
+									</ColorFilter>
+								</ColorContainer>
 							</Filter>
 							<Filter>
 								<FilterTitle>Size</FilterTitle>

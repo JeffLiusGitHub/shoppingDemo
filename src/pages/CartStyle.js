@@ -139,6 +139,7 @@ export const Summary = styled.div`
 	border-radius: 10px;
 	padding: 20px;
 	height: 50vh;
+	min-height:400px;
 `;
 
 export const SummaryTitle = styled.h1`
