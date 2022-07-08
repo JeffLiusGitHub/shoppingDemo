@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Link = exports.Button = exports.Input = exports.Form = exports.Title = exports.Wrapper = exports.Container = void 0;
+exports.LinkComponent = exports.LinkContainer = exports.Button = exports.Input = exports.Form = exports.Title = exports.Wrapper = exports.Container = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -11,8 +11,18 @@ var _responsive = require("../responsive");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function _templateObject8() {
+  var data = _taggedTemplateLiteral(["\n\tmargin: 5px 0px;\n\tfont-size: 12px;\n\ttext-decoration: underline;\n\tcursor: pointer;\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\nmargin: 5px 0px;\nfont-size: 12px;\ntext-decoration: underline;\ncursor: pointer;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n    justify-content:space-between;\n    align-items:center;\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -22,7 +32,7 @@ function _templateObject7() {
 }
 
 function _templateObject6() {
-  var data = _taggedTemplateLiteral(["\nalign-self: flex-end;\nwidth: 40%;\nborder: none;\npadding: 15px 20px;\nbackground-color: teal;\ncolor: white;\ncursor: pointer;\nmargin-bottom: 10px;\nbutton:disabled {\n    border: 1px solid #999999;\n    background-color: #cccccc;\n    color: #666666;\n}\n"]);
+  var data = _taggedTemplateLiteral(["\n\talign-self: flex-end;\n\twidth: 40%;\n\tborder: none;\n\tpadding: 15px 20px;\n\tbackground-color: teal;\n\tcolor: white;\n\tcursor: pointer;\n\tmargin-bottom: 10px;\n\tbutton:disabled {\n\t\tborder: 1px solid #999999;\n\t\tbackground-color: #cccccc;\n\t\tcolor: #666666;\n\t}\n"]);
 
   _templateObject6 = function _templateObject6() {
     return data;
@@ -32,7 +42,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\nflex: 1;\nmin-width: 40%;\nmargin: 10px 0;\npadding: 10px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmin-width: 40%;\n\tmargin: 10px 0;\n\tpadding: 10px;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -42,7 +52,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\ndisplay: flex;\nflex-direction: column;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tflex-direction: column;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -52,7 +62,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = _taggedTemplateLiteral(["\nfont-size: 24px;\nfont-weight: 300;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tfont-size: 24px;\n\tfont-weight: 300;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -62,7 +72,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\nwidth: 35%;\npadding: 20px;\nbackground-color: white;\n", ";\n", ";\n", "\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 35%;\n\tpadding: 20px;\n\tbackground-color: white;\n\t", ";\n\t", ";\n\t", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -72,7 +82,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nwidth: 100vw;\nheight: 100vh;\nbackground: linear-gradient(\n        rgba(255, 255, 255, 0.5),\n        rgba(255, 255, 255, 0.5)\n    ),\n    url('https://previews.123rf.com/images/maximleshkovich/maximleshkovich1710/maximleshkovich171000265/88532663-women-modern-fashion-clothes-and-accessories-background-with-frame-for-text-flat-lay-female-casual-s.jpg')\n        center;\nbackground-size: cover;\ndisplay: flex;\nalign-items: center;\njustify-content: center;\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 100vw;\n\theight: 100vh;\n\tbackground: linear-gradient(\n\t\t\trgba(255, 255, 255, 0.5),\n\t\t\trgba(255, 255, 255, 0.5)\n\t\t),\n\t\turl('https://previews.123rf.com/images/maximleshkovich/maximleshkovich1710/maximleshkovich171000265/88532663-women-modern-fashion-clothes-and-accessories-background-with-frame-for-text-flat-lay-female-casual-s.jpg')\n\t\t\tcenter;\n\tbackground-size: cover;\n\tdisplay: flex;\n\talign-items: center;\n\tjustify-content: center;\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -113,6 +123,10 @@ var Button = _styledComponents["default"].button(_templateObject6());
 
 exports.Button = Button;
 
-var Link = _styledComponents["default"].a(_templateObject7());
+var LinkContainer = _styledComponents["default"].div(_templateObject7());
 
-exports.Link = Link;
+exports.LinkContainer = LinkContainer;
+
+var LinkComponent = _styledComponents["default"].a(_templateObject8());
+
+exports.LinkComponent = LinkComponent;

@@ -7,12 +7,15 @@ import {
 	Container,
 	Wrapper,
 	Title,
-	Form,
 	Input,
 	Button,
-	Link,
+	LinkComponent,
+	LinkContainer,
 } from './LoginStyle';
-
+import { Link } from 'react-router-dom';
+import { loginSchema, loginInitialValue } from '../Validations/LoginValidation';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import FormikInput from '../Validations/FormikInput';
 const Login = () => {
 	const [userName, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -22,31 +25,53 @@ const Login = () => {
 		event.preventDefault();
 		login(dispatch, { userName, password });
 	};
+
+	const handleSubmit = (values) => {
+		alert(JSON.stringify(values));
+	};
 	return (
 		<>
 			<Announcement color={'#fff'} text={announcement[1]} />
 			<Container>
 				<Wrapper>
 					<Title>SIGN IN</Title>
-					<Form>
-						<Input
-							placeholder="username"
-							onChange={(event) => setUsername(event.target.value)}
-						/>
-						<Input
-							placeholder="password"
-							type="password"
-							autocomplete="on"
-							onChange={(event) => setPassword(event.target.value)}
-						/>
-						{isFetching && <p>please wait</p>}
-						{error && <p style={{ color: 'red' }}>something went wrong</p>}
-						<Button onClick={loginHandler} disabled={isFetching}>
-							LOGIN
-						</Button>
-						<Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-						<Link>CREATE A NEW ACCOUNT</Link>
-					</Form>
+					<Formik
+						initialValues={loginInitialValue}
+						onSubmit={handleSubmit}
+						validationSchema={loginSchema}
+					>
+						{({ errors, touched, dirty, isValid }) => {
+							return (
+								<Form onSumbit={handleSubmit}>
+									<FormikInput
+										placeholder="email"
+										name="email"
+										required={true}
+									/>
+
+									<FormikInput
+										type="password"
+										placeholder="password"
+										autoComplete="off"
+										name="password"
+										required={true}
+									/>
+
+									<LinkContainer>
+										<LinkComponent>
+											DO NOT YOU REMEMBER THE PASSWORD?
+										</LinkComponent>
+
+										<Link to={'/register/'} style={{ textDecoration: 'none' }}>
+											<LinkComponent>CREATE A NEW ACCOUNT</LinkComponent>
+										</Link>
+									</LinkContainer>
+
+									<Button type="submit">LOGIN</Button>
+								</Form>
+							);
+						}}
+					</Formik>
 				</Wrapper>
 			</Container>
 		</>
