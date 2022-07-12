@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Container = exports.Button = exports.SummaryItemPrice = exports.SummaryItemText = exports.SummaryItem = exports.SummaryTitle = exports.Summary = exports.Hr = exports.ProductButton = exports.ProductPrice = exports.ProductAmount = exports.ProductAmountContainer = exports.PriceDetail = exports.ProductSize = exports.ProductColor = exports.ProductId = exports.ProductName = exports.Details = exports.Image = exports.ProductDetail = exports.Product = exports.Info = exports.Bottom = exports.TopText = exports.TopTexts = exports.TopButton = exports.Top = exports.Title = exports.Wrapper = void 0;
+exports.Container = exports.Button = exports.SummaryItemPrice = exports.SummaryItemText = exports.SummaryItem = exports.SummaryTitle = exports.Summary = exports.Hr = exports.DeleteContent = exports.DeleteContainer = exports.ProductButton = exports.ProductPrice = exports.ProductAmount = exports.ProductAmountContainer = exports.PriceDetail = exports.ProductSize = exports.ProductColor = exports.ProductId = exports.ProductName = exports.Details = exports.Image = exports.ProductDetail = exports.Product = exports.Info = exports.Bottom = exports.TopText = exports.TopTexts = exports.TopButton = exports.Top = exports.Title = exports.Wrapper = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
@@ -11,8 +11,28 @@ var _responsive = require("../responsive");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _templateObject29() {
+function _templateObject31() {
   var data = _taggedTemplateLiteral(["\n\tdisplay: grid;\n\tgrid-template-rows: auto auto 1fr auto;\n\tmin-height: 100vh;\n"]);
+
+  _templateObject31 = function _templateObject31() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject30() {
+  var data = _taggedTemplateLiteral(["\n\twidth: 100%;\n\tpadding: 10px;\n\tbackground-color: black;\n\tcolor: white;\n\tfont-weight: 600;\n"]);
+
+  _templateObject30 = function _templateObject30() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject29() {
+  var data = _taggedTemplateLiteral([""]);
 
   _templateObject29 = function _templateObject29() {
     return data;
@@ -22,7 +42,7 @@ function _templateObject29() {
 }
 
 function _templateObject28() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 100%;\n\tpadding: 10px;\n\tbackground-color: black;\n\tcolor: white;\n\tfont-weight: 600;\n"]);
+  var data = _taggedTemplateLiteral([""]);
 
   _templateObject28 = function _templateObject28() {
     return data;
@@ -32,7 +52,7 @@ function _templateObject28() {
 }
 
 function _templateObject27() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["\n\tmargin: 30px 0px;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tfont-weight: ", ";\n\tfont-size: ", ";\n"]);
 
   _templateObject27 = function _templateObject27() {
     return data;
@@ -42,7 +62,7 @@ function _templateObject27() {
 }
 
 function _templateObject26() {
-  var data = _taggedTemplateLiteral([""]);
+  var data = _taggedTemplateLiteral(["\n\tfont-weight: 200;\n"]);
 
   _templateObject26 = function _templateObject26() {
     return data;
@@ -52,7 +72,7 @@ function _templateObject26() {
 }
 
 function _templateObject25() {
-  var data = _taggedTemplateLiteral(["\n\tmargin: 30px 0px;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tfont-weight: ", ";\n\tfont-size: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tborder: 0.5px solid lightgray;\n\tborder-radius: 10px;\n\tpadding: 20px;\n\theight: 50vh;\n\tmin-height: 400px;\n"]);
 
   _templateObject25 = function _templateObject25() {
     return data;
@@ -62,7 +82,7 @@ function _templateObject25() {
 }
 
 function _templateObject24() {
-  var data = _taggedTemplateLiteral(["\n\tfont-weight: 200;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tbackground-color: #eee;\n\tborder: none;\n\theight: 1px;\n"]);
 
   _templateObject24 = function _templateObject24() {
     return data;
@@ -72,7 +92,7 @@ function _templateObject24() {
 }
 
 function _templateObject23() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tborder: 0.5px solid lightgray;\n\tborder-radius: 10px;\n\tpadding: 20px;\n\theight: 50vh;\n\tmin-height:400px;\n"]);
+  var data = _taggedTemplateLiteral([""]);
 
   _templateObject23 = function _templateObject23() {
     return data;
@@ -82,7 +102,7 @@ function _templateObject23() {
 }
 
 function _templateObject22() {
-  var data = _taggedTemplateLiteral(["\n\tbackground-color: #eee;\n\tborder: none;\n\theight: 1px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tmargin-bottom: 5px;\n\tcursor: pointer;\n"]);
 
   _templateObject22 = function _templateObject22() {
     return data;
@@ -409,19 +429,27 @@ var ProductButton = _styledComponents["default"].button(_templateObject21());
 
 exports.ProductButton = ProductButton;
 
-var Hr = _styledComponents["default"].hr(_templateObject22());
+var DeleteContainer = _styledComponents["default"].div(_templateObject22());
+
+exports.DeleteContainer = DeleteContainer;
+
+var DeleteContent = _styledComponents["default"].p(_templateObject23());
+
+exports.DeleteContent = DeleteContent;
+
+var Hr = _styledComponents["default"].hr(_templateObject24());
 
 exports.Hr = Hr;
 
-var Summary = _styledComponents["default"].div(_templateObject23());
+var Summary = _styledComponents["default"].div(_templateObject25());
 
 exports.Summary = Summary;
 
-var SummaryTitle = _styledComponents["default"].h1(_templateObject24());
+var SummaryTitle = _styledComponents["default"].h1(_templateObject26());
 
 exports.SummaryTitle = SummaryTitle;
 
-var SummaryItem = _styledComponents["default"].div(_templateObject25(), function (props) {
+var SummaryItem = _styledComponents["default"].div(_templateObject27(), function (props) {
   return props.type === 'total' && '500';
 }, function (props) {
   return props.type === 'total' && '24px';
@@ -429,18 +457,18 @@ var SummaryItem = _styledComponents["default"].div(_templateObject25(), function
 
 exports.SummaryItem = SummaryItem;
 
-var SummaryItemText = _styledComponents["default"].span(_templateObject26());
+var SummaryItemText = _styledComponents["default"].span(_templateObject28());
 
 exports.SummaryItemText = SummaryItemText;
 
-var SummaryItemPrice = _styledComponents["default"].span(_templateObject27());
+var SummaryItemPrice = _styledComponents["default"].span(_templateObject29());
 
 exports.SummaryItemPrice = SummaryItemPrice;
 
-var Button = _styledComponents["default"].button(_templateObject28());
+var Button = _styledComponents["default"].button(_templateObject30());
 
 exports.Button = Button;
 
-var Container = _styledComponents["default"].div(_templateObject29());
+var Container = _styledComponents["default"].div(_templateObject31());
 
 exports.Container = Container;

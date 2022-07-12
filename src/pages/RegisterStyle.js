@@ -67,8 +67,8 @@ export const Agreement = styled.span`
 `;
 
 export const ButtonContainer = styled.div`
+	margin-top: 10px;
 	display: flex;
-	/* align-items:flex-end; */
 	justify-content: flex-end;
 `;
 

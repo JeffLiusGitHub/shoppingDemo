@@ -2,6 +2,7 @@ import React from 'react';
 
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Badge from '@mui/material/Badge';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -20,7 +21,8 @@ import {
 } from './NavbarStyle';
 
 const Navbar = () => {
-	const quantity = useSelector((state) => state.cart.quantity);
+	const cartQuantity = useSelector((state) => state.cart.quantity);
+	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 
 	return (
 		<NavContainer>
@@ -49,10 +51,23 @@ const Navbar = () => {
 					</Link>
 					<CartIcon>
 						<Link
+							to="/wishlist"
+							style={{ margin: '1rem', textDecoration: 'none', color: 'white' }}
+						>
+							<Badge badgeContent={wishListsQuantity} color="error">
+								<FavoriteBorderIcon
+									sx={{ fontSize: { lg: 'large', md: 'medium', xs: 'small' } }}
+								/>
+							</Badge>
+						</Link>
+					</CartIcon>
+
+					<CartIcon>
+						<Link
 							to="/cart"
 							style={{ margin: '1rem', textDecoration: 'none', color: 'white' }}
 						>
-							<Badge badgeContent={quantity} color="error">
+							<Badge badgeContent={cartQuantity} color="error">
 								<ShoppingCartOutlinedIcon
 									sx={{ fontSize: { lg: 'large', md: 'medium', xs: 'small' } }}
 								/>

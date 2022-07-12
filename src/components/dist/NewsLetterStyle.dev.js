@@ -22,7 +22,7 @@ function _templateObject6() {
 }
 
 function _templateObject5() {
-  var data = _taggedTemplateLiteral(["\n\tborder: none;\n\tflex: 8;\n\tpadding-left: 20px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tborder: none;\n\tflex: 8;\n\tpadding-left: 20px;\n\twidth: 70vw;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -32,7 +32,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 50%;\n\theight: 40px;\n\tbackground-color: white;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tborder: 1px solid lightgray;\n\t", ";\n\t", ";\n\t", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 100%;\n\theight: 40px;\n\tbackground-color: white;\n\tdisplay: flex;\n\tjustify-content: space-between;\n\tborder: 1px solid lightgray;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -93,13 +93,7 @@ var Description = _styledComponents["default"].div(_templateObject3(), (0, _resp
 
 exports.Description = Description;
 
-var InputContainer = _styledComponents["default"].div(_templateObject4(), (0, _responsive.mobile)({
-  width: '80%'
-}), (0, _responsive.tablet)({
-  width: '70%'
-}), (0, _responsive.laptop)({
-  width: '60%'
-}));
+var InputContainer = _styledComponents["default"].div(_templateObject4());
 
 exports.InputContainer = InputContainer;
 

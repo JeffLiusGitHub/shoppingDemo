@@ -127,6 +127,13 @@ export const ProductPrice = styled.div`
 `;
 export const ProductButton = styled.button``;
 
+export const DeleteContainer = styled.div`
+	display: flex;
+	margin-bottom: 5px;
+	cursor: pointer;
+`;
+export const DeleteContent = styled.p``;
+
 export const Hr = styled.hr`
 	background-color: #eee;
 	border: none;
@@ -139,7 +146,7 @@ export const Summary = styled.div`
 	border-radius: 10px;
 	padding: 20px;
 	height: 50vh;
-	min-height:400px;
+	min-height: 400px;
 `;
 
 export const SummaryTitle = styled.h1`

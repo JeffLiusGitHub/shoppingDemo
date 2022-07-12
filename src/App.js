@@ -8,12 +8,13 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Cart from './pages/Cart';
 import Success from './pages/Success';
+import WishList from './pages/WishList';
 import { useState } from 'react';
 import DefaultLayout from './pages/DefaultLayout';
 function App() {
 	const [user, setUser] = useState(false);
 	return (
-		<DefaultLayout >
+		<DefaultLayout>
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/products/:category" element={<ProductList />} />
@@ -30,6 +31,7 @@ function App() {
 					path="/product"
 					element={<p style={{ padding: '1rem' }}>item not found</p>}
 				/>
+				<Route path="/wishlist" element={<WishList />} />
 				{/* <Route
       path="*"
       element={

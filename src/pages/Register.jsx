@@ -10,13 +10,13 @@ import {
 	Button,
 	ButtonContainer,
 } from './RegisterStyle';
+import { Link } from 'react-router-dom';
+import { LinkComponent, LinkContainer } from './LoginStyle';
 
 import { userSchema, userInitialValue } from '../Validations/UserValidation';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import FormikInput from '../Validations/FormikInput';
 const Register = () => {
-
-
 	const handleSubmit = (values) => {
 		alert(JSON.stringify(values));
 	};
@@ -40,12 +40,14 @@ const Register = () => {
 										required={true}
 										placeholder="username"
 										name="userName"
+										input={Input}
 									/>
 
 									<FormikInput
 										placeholder="email"
 										name="email"
 										required={true}
+										input={Input}
 									/>
 
 									<FormikInput
@@ -54,6 +56,7 @@ const Register = () => {
 										autoComplete="off"
 										name="password"
 										required={true}
+										input={Input}
 									/>
 
 									<FormikInput
@@ -62,12 +65,18 @@ const Register = () => {
 										autoComplete="off"
 										name="confirmPassword"
 										required={true}
+										input={Input}
 									/>
 
 									<Agreement>
 										By creating an account, I consent to the processing of my
 										personal data in accordance with the <b>PRIVACY POLICY</b>
 									</Agreement>
+									<LinkContainer>
+										<Link to={'/login/'} style={{ textDecoration: 'none' }}>
+											<LinkComponent>ALREADY HAVE AN ACCOUNT?</LinkComponent>
+										</Link>
+									</LinkContainer>
 									<ButtonContainer>
 										<Button type="submit">CREATE</Button>
 									</ButtonContainer>

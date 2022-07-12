@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.deductProductQuantity = exports.addProductQuantity = exports.addProductsToCart = void 0;
+exports["default"] = exports.deleteProduct = exports.deductProductQuantity = exports.addProductQuantity = exports.addProductsToCart = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
@@ -65,13 +65,29 @@ var cartSlice = (0, _toolkit.createSlice)({
         state.total -= currentProduct.price;
         state.quantity -= 1;
       }
+    },
+    deleteProduct: function deleteProduct(state, action) {
+      var productIndex = state.products.findIndex(function (p) {
+        return p.id === action.payload.id && p.size === action.payload.size && p.color === action.payload.color;
+      });
+      var currentProduct = state.products[productIndex];
+
+      if (productIndex !== -1) {
+        state.total -= currentProduct.price * currentProduct.quantity;
+        state.quantity -= currentProduct.quantity;
+        var newProductArray = state.products;
+        newProductArray.splice(productIndex, 1);
+        state.products = newProductArray;
+      }
     }
   }
 });
 var _cartSlice$actions = cartSlice.actions,
     addProductsToCart = _cartSlice$actions.addProductsToCart,
     addProductQuantity = _cartSlice$actions.addProductQuantity,
-    deductProductQuantity = _cartSlice$actions.deductProductQuantity;
+    deductProductQuantity = _cartSlice$actions.deductProductQuantity,
+    deleteProduct = _cartSlice$actions.deleteProduct;
+exports.deleteProduct = deleteProduct;
 exports.deductProductQuantity = deductProductQuantity;
 exports.addProductQuantity = addProductQuantity;
 exports.addProductsToCart = addProductsToCart;

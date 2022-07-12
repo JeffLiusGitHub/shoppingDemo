@@ -7,7 +7,11 @@ import StripeCheckout from 'react-stripe-checkout';
 import { userRequest } from '../axiosRequest';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { addProductQuantity, deductProductQuantity } from '../Redux/CartSlice';
+import {
+	addProductQuantity,
+	deductProductQuantity,
+	deleteProduct,
+} from '../Redux/CartSlice';
 import { announcement } from '../data';
 import {
 	Wrapper,
@@ -31,6 +35,7 @@ import {
 	ProductAmount,
 	ProductPrice,
 	ProductButton,
+	DeleteContainer,
 	Hr,
 	Summary,
 	SummaryTitle,
@@ -39,8 +44,9 @@ import {
 	SummaryItemPrice,
 	Button,
 	Container,
+	DeleteContent,
 } from './CartStyle';
-import Snackbar from '../components/Snackbar';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
@@ -57,6 +63,9 @@ const Cart = () => {
 	};
 	const deductOnProduct = (id, size, color) => {
 		dispatch(deductProductQuantity({ id: id, size: size, color: color }));
+	};
+	const deleteCurrentProduct = (id, size, color) => {
+		dispatch(deleteProduct({ id: id, size: size, color: color }));
 	};
 	// useEffect(() => {
 	// 	const request = async () => {
@@ -128,6 +137,13 @@ const Cart = () => {
 									</ProductDetail>
 								</Link>
 								<PriceDetail>
+									{' '}
+									<DeleteContainer
+										onClick={() => deleteCurrentProduct(p.id, p.size, p.color)}
+									>
+										<DeleteContent>remove</DeleteContent>
+										<DeleteOutlineIcon />
+									</DeleteContainer>
 									<ProductAmountContainer>
 										<ProductButton
 											onClick={() => addOnProduct(p.id, p.size, p.color)}

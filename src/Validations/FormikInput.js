@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ErrorMessageContainer, Input } from '../pages/RegisterStyle';
+import { ErrorMessageContainer } from '../pages/RegisterStyle';
 import { Field, ErrorMessage } from 'formik';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 const FiledContainer = styled.div`
@@ -14,13 +14,13 @@ const Label = styled.h1`
 	font-size: 20px;
 `;
 
-const FormikInput = ({ name, type = 'text', required = false, touched }) => {
+const FormikInput = ({ name, type = 'text', required = false, input }) => {
 	return (
 		<FiledContainer>
 			<Field
 				required={required}
 				autoComplete="off"
-				as={Input}
+				as={input}
 				label={name}
 				name={name}
 				fullWidth

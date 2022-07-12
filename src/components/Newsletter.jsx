@@ -1,6 +1,5 @@
 import SendIcon from '@mui/icons-material/Send';
 import CustomizedSnackbars from './Snackbar';
-import * as Yup from 'yup';
 import { useState } from 'react';
 import { Formik, Form } from 'formik';
 import {
@@ -11,22 +10,20 @@ import {
 	Input,
 	Button,
 } from './NewsLetterStyle';
+import FormikInput from '../Validations/FormikInput';
+import {
+	newsLetterInitialValue,
+	newsLetterSchema,
+} from '../Validations/dist/NewsLetter';
 //validation on progress
 
 const Newsletter = () => {
 	const [open, setOpen] = useState(false);
 	const [email, setEmail] = useState('');
 
-	const initialValues = { email: '' };
 	const handleChangeEmail = (e) => {
 		setEmail(e.target.value);
 	};
-
-	const emailSchema = Yup.object().shape({
-		email: Yup.string()
-			.required('This is a mandatory field')
-			.email('Enter a valid email'),
-	});
 
 	const handleClick = (e) => {
 		e.preventDefault();
@@ -45,20 +42,28 @@ const Newsletter = () => {
 			<Title>Newsletter</Title>
 			<Description>Get timely updates from your favorite products.</Description>
 			<Formik
-				initialValues={{ email: '' }}
-				validationSchema={emailSchema}
+				initialValues={newsLetterInitialValue}
+				validationSchema={newsLetterSchema}
 				onSubmit={handleClick}
 			>
-				<InputContainer>
-					<Input
-						placeholder="Your email"
-						onChange={handleChangeEmail}
-						type="email"
-					/>
-					<Button>
-						<SendIcon type="submit" onClick={handleClick} />
-					</Button>
-				</InputContainer>
+				{({ errors, touched, dirty, isValid }) => {
+					return (
+						<Form onSumbit={handleClick}>
+							<InputContainer>
+								<Input
+									placeholder="email"
+									onChange={handleChangeEmail}
+									type="email"
+									input={Input}
+									name="email"
+								/>
+								<Button>
+									<SendIcon type="submit" onClick={handleClick} />
+								</Button>
+							</InputContainer>
+						</Form>
+					);
+				}}
 			</Formik>
 			<CustomizedSnackbars
 				open={open}

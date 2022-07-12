@@ -67,9 +67,29 @@ const cartSlice = createSlice({
 				state.quantity -= 1;
 			}
 		},
+		deleteProduct: (state, action) => {
+			const productIndex = state.products.findIndex(
+				(p) =>
+					p.id === action.payload.id &&
+					p.size === action.payload.size &&
+					p.color === action.payload.color
+			);
+			const currentProduct = state.products[productIndex];
+			if (productIndex !== -1) {
+				state.total -= currentProduct.price * currentProduct.quantity;
+				state.quantity -= currentProduct.quantity;
+				const newProductArray = state.products;
+				newProductArray.splice(productIndex, 1);
+				state.products = newProductArray;
+			}
+		},
 	},
 });
 
-export const { addProductsToCart, addProductQuantity, deductProductQuantity } =
-	cartSlice.actions;
+export const {
+	addProductsToCart,
+	addProductQuantity,
+	deductProductQuantity,
+	deleteProduct,
+} = cartSlice.actions;
 export default cartSlice.reducer;

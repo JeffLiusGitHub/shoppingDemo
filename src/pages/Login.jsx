@@ -9,6 +9,7 @@ import {
 	Title,
 	Input,
 	Button,
+	ButtonContainer,
 	LinkComponent,
 	LinkContainer,
 } from './LoginStyle';
@@ -46,6 +47,7 @@ const Login = () => {
 									<FormikInput
 										placeholder="email"
 										name="email"
+										input={Input}
 										required={true}
 									/>
 
@@ -54,6 +56,7 @@ const Login = () => {
 										placeholder="password"
 										autoComplete="off"
 										name="password"
+										input={Input}
 										required={true}
 									/>
 
@@ -66,8 +69,9 @@ const Login = () => {
 											<LinkComponent>CREATE A NEW ACCOUNT</LinkComponent>
 										</Link>
 									</LinkContainer>
-
-									<Button type="submit">LOGIN</Button>
+									<ButtonContainer>
+										<Button type="submit">LOGIN</Button>
+									</ButtonContainer>
 								</Form>
 							);
 						}}

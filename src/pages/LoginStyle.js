@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
 	width: 35%;
 	padding: 20px;
 	background-color: white;
+	border-left: 5px solid #d2d8d8;
 	${tablet({ width: '50%' })};
 	${laptop({ width: '75%' })};
 	${mobile({ width: '90%' })}
@@ -42,6 +43,12 @@ export const Input = styled.input`
 	padding: 10px;
 `;
 
+export const ButtonContainer = styled.div`
+	margin-top: 10px;
+	display: flex;
+	justify-content: flex-end;
+`;
+
 export const Button = styled.button`
 	align-self: flex-end;
 	width: 40%;
@@ -51,6 +58,7 @@ export const Button = styled.button`
 	color: white;
 	cursor: pointer;
 	margin-bottom: 10px;
+	border-radius: 5px;
 	button:disabled {
 		border: 1px solid #999999;
 		background-color: #cccccc;
@@ -59,8 +67,8 @@ export const Button = styled.button`
 `;
 export const LinkContainer = styled.div`
 	display: flex;
-    justify-content:space-between;
-    align-items:center;
+	justify-content: space-between;
+	align-items: center;
 `;
 
 export const LinkComponent = styled.a`

@@ -26,21 +26,19 @@ export const Description = styled.div`
 `;
 
 export const InputContainer = styled.div`
-	width: 50%;
+	width: 100%;
 	height: 40px;
 	background-color: white;
 	display: flex;
 	justify-content: space-between;
 	border: 1px solid lightgray;
-	${mobile({ width: '80%' })};
-	${tablet({ width: '70%' })};
-	${laptop({ width: '60%' })};
 `;
 
 export const Input = styled.input`
 	border: none;
 	flex: 8;
 	padding-left: 20px;
+	width: 70vw;
 `;
 
 export const Button = styled.button`

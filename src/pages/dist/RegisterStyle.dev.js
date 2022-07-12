@@ -22,7 +22,7 @@ function _templateObject9() {
 }
 
 function _templateObject8() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\t/* align-items:flex-end; */\n\tjustify-content: flex-end;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tmargin-top: 10px;\n\tdisplay: flex;\n\tjustify-content: flex-end;\n"]);
 
   _templateObject8 = function _templateObject8() {
     return data;
