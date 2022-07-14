@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import styled from 'styled-components';
-import Product from './Product';
 import { useState } from 'react';
 import productNotFound from '../asset/productNotFound.png';
+import Product from './Product';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
 import { allData } from '../data';
-const Container = styled.div`
+
+const Container = styled.ul`
 	padding: 20px;
 	display: flex;
 	flex-wrap: wrap;

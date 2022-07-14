@@ -1,8 +1,7 @@
-import Products from '../components/Products';
 import Newsletter from '../components/Newsletter';
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import {
 	Container,
 	Title,
@@ -12,7 +11,7 @@ import {
 	Select,
 	Option,
 } from './ProductListStyle';
-
+const Products = React.lazy(() => import('../components/Products'));
 const colorList = ['White', 'Black', 'Red', 'Blue', 'Yellow', 'Green'];
 const sizeList = ['XS', 'S', 'M', 'L', 'XL'];
 
@@ -59,7 +58,10 @@ const ProductList = () => {
 					</Select>
 				</Filter>
 			</FilterContainer>
-			<Products category={category} filter={filter} sort={sort} />
+			<Suspense fallback={<CircularProgress color="success" />}>
+				<Products category={category} filter={filter} sort={sort} />
+			</Suspense>
+
 			<Newsletter />
 		</Container>
 	);

@@ -14,7 +14,7 @@ export const Info = styled.div`
 	transition: all 0.5s ease-out;
 	background-color: rgba(0, 0, 0, 0.2);
 `;
-export const Container = styled.div`
+export const Container = styled.li`
 	flex: 1;
 	margin: 5px;
 	min-width: 280px;

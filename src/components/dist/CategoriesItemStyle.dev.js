@@ -53,7 +53,7 @@ function _templateObject() {
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents["default"].div(_templateObject());
+var Container = _styledComponents["default"].li(_templateObject());
 
 exports.Container = Container;
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { mobile } from '../responsive';
 
-export const Container = styled.div`
+export const Container = styled.li`
 	flex: 1;
 	margin: 3px;
 	height: 70vh;

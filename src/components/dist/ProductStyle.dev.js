@@ -65,7 +65,7 @@ var Info = _styledComponents["default"].div(_templateObject());
 
 exports.Info = Info;
 
-var Container = _styledComponents["default"].div(_templateObject2(), Info);
+var Container = _styledComponents["default"].li(_templateObject2(), Info);
 
 exports.Container = Container;
 

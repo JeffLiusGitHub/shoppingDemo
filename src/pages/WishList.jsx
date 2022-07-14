@@ -1,16 +1,16 @@
-import React from 'react';
-import WishListItem from '../components/WishListItem';
+import React, { Suspense } from 'react';
+
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import FindInPageIcon from '@mui/icons-material/FindInPage';
-import PlaylistAddIcon from '@mui/icons-material/PlaylistAdd';
-const Container = styled.div`
+const WishListItem = React.lazy(() => import('../components/WishListItem'));
+
+const Container = styled.ul`
 	display: flex;
 	gap: 10px 10px;
 	flex-wrap: wrap;
 	padding: 20px;
 	justify-content: center;
-	/* align-items: center; */
 	position: relative;
 	min-height: 70vh;
 	background-color: #f2f2f2;
@@ -20,11 +20,12 @@ const NoWishListContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	font-size: 50px;
+	font-size: 30px;
+	text-align: center;
 `;
 const NoWishList = (
 	<NoWishListContainer>
-		<FindInPageIcon style={{ fontSize: '150px',marginBottom:'10px' }} />
+		<FindInPageIcon style={{ fontSize: '50px', marginBottom: '10px' }} />
 		<p>No wish list added</p>
 	</NoWishListContainer>
 );
@@ -34,13 +35,15 @@ const WishList = () => {
 		<Container>
 			{wishLists.length !== 0
 				? wishLists?.map((w, k) => (
-						<WishListItem
-							key={k}
-							name={w.name}
-							price={w.price}
-							img={w.img}
-							id={w.id}
-						></WishListItem>
+						<Suspense fallback={<div>Loading...</div>}>
+							<WishListItem
+								key={k}
+								name={w.name}
+								price={w.price}
+								img={w.img}
+								id={w.id}
+							></WishListItem>
+						</Suspense>
 				  ))
 				: NoWishList}
 		</Container>

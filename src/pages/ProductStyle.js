@@ -85,7 +85,7 @@ export const ColorContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 `;
-export const ColorFilter = styled.div`
+export const ColorFilter = styled.ul`
 	display: flex;
 	margin-top: 20px;
 `;
@@ -93,7 +93,7 @@ export const ColorDisplayValue = styled.span`
 	font-weight: 500;
 `;
 
-export const FilterColor = styled.div`
+export const FilterColor = styled.li`
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;

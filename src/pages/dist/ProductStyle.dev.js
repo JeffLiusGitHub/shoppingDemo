@@ -329,7 +329,7 @@ var ColorContainer = _styledComponents["default"].div(_templateObject13());
 
 exports.ColorContainer = ColorContainer;
 
-var ColorFilter = _styledComponents["default"].div(_templateObject14());
+var ColorFilter = _styledComponents["default"].ul(_templateObject14());
 
 exports.ColorFilter = ColorFilter;
 
@@ -337,7 +337,7 @@ var ColorDisplayValue = _styledComponents["default"].span(_templateObject15());
 
 exports.ColorDisplayValue = ColorDisplayValue;
 
-var FilterColor = _styledComponents["default"].div(_templateObject16(), function (props) {
+var FilterColor = _styledComponents["default"].li(_templateObject16(), function (props) {
   return props.color;
 });
 

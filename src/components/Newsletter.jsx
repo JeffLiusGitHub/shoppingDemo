@@ -44,11 +44,11 @@ const Newsletter = () => {
 			<Formik
 				initialValues={newsLetterInitialValue}
 				validationSchema={newsLetterSchema}
-				onSubmit={handleClick}
+				handleSubmit={handleClick}
 			>
 				{({ errors, touched, dirty, isValid }) => {
 					return (
-						<Form onSumbit={handleClick}>
+						<Form onSubmit={handleClick}>
 							<InputContainer>
 								<Input
 									placeholder="email"

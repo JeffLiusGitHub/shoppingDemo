@@ -5,7 +5,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { useDispatch } from 'react-redux';
 import { deleteFromWishList } from '../Redux/WishListSlice';
 import { Link } from 'react-router-dom';
-export const Container = styled.div`
+export const Container = styled.li`
 	display: flex;
 	flex-direction: column;
 	flex: 1;
@@ -16,7 +16,7 @@ export const Container = styled.div`
 	align-items: center;
 	background-color: #efedd6;
 	position: relative;
-    border-radius:5px;
+	border-radius: 5px;
 `;
 export const InfoContainer = styled.div`
 	height: 20%;

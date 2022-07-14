@@ -32,14 +32,14 @@ const Arrow = styled.div`
 	opacity: 0.5;
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
 	height: 100%;
 	display: flex;
 	transition: all 1.5s ease;
 	transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
-const Slide = styled.div`
+const Slide = styled.li`
 	display: flex;
 	align-items: center;
 	width: 100vw;

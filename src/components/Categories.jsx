@@ -6,7 +6,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
-const Container = styled.div`
+const Container = styled.ul`
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
