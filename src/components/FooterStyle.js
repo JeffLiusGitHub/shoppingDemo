@@ -61,11 +61,14 @@ export const List = styled.ul`
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	list-style:none;
+
 `;
 
 export const ListItem = styled.li`
 	width: 50%;
 	margin-bottom: 10px;
+	/* text-decoration:none; */
 `;
 
 export const Right = styled.div`

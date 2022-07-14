@@ -102,7 +102,7 @@ function _templateObject17() {
 }
 
 function _templateObject16() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.4);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n\t:active {\n\t\tborder: 3px solid green;\n\t\ttransition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;\n\t\ttransform: scale(0.9);\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 20px;\n\theight: 20px;\n\t/* text-decoration: none; */\n\t/* list-style: none; */\n\tborder-radius: 50%;\n\tborder: 1px solid rgba(0, 0, 0, 0.4);\n\tbackground-color: ", ";\n\tmargin: 0px 5px;\n\tcursor: pointer;\n\t:active {\n\t\tborder: 3px solid green;\n\t\ttransition: transform 500ms cubic-bezier(0.355, 0.51, 0.235, 0.925) 0s;\n\t\ttransform: scale(0.9);\n\t}\n"]);
 
   _templateObject16 = function _templateObject16() {
     return data;
@@ -122,7 +122,7 @@ function _templateObject15() {
 }
 
 function _templateObject14() {
-  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tmargin-top: 20px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tmargin-top: 20px;\n\tlist-style: none;\n\tpadding: 0;\n\t\n"]);
 
   _templateObject14 = function _templateObject14() {
     return data;

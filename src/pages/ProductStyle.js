@@ -88,6 +88,9 @@ export const ColorContainer = styled.div`
 export const ColorFilter = styled.ul`
 	display: flex;
 	margin-top: 20px;
+	list-style: none;
+	padding: 0;
+	
 `;
 export const ColorDisplayValue = styled.span`
 	font-weight: 500;
@@ -96,6 +99,8 @@ export const ColorDisplayValue = styled.span`
 export const FilterColor = styled.li`
 	width: 20px;
 	height: 20px;
+	/* text-decoration: none; */
+	/* list-style: none; */
 	border-radius: 50%;
 	border: 1px solid rgba(0, 0, 0, 0.4);
 	background-color: ${(props) => props.color};

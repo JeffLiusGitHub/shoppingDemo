@@ -13,6 +13,7 @@ const Container = styled.ul`
 	justify-content: center;
 	position: relative;
 	min-height: 70vh;
+	list-style:none;
 	background-color: #f2f2f2;
 `;
 const NoWishListContainer = styled.div`

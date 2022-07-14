@@ -42,7 +42,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 3px;\n\theight: 70vh;\n\tposition: relative;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 3px;\n\theight: 70vh;\n\tposition: relative;\n\ttext-decoration:none;\n"]);
 
   _templateObject = function _templateObject() {
     return data;

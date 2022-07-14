@@ -17,6 +17,7 @@ export const Container = styled.li`
 	background-color: #efedd6;
 	position: relative;
 	border-radius: 5px;
+	text-decoration:none;
 `;
 export const InfoContainer = styled.div`
 	height: 20%;

@@ -6,6 +6,7 @@ export const Container = styled.li`
 	margin: 3px;
 	height: 70vh;
 	position: relative;
+	text-decoration:none;
 `;
 export const Image = styled.img`
 	width: 100%;

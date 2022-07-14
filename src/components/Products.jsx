@@ -14,6 +14,7 @@ const Container = styled.ul`
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	list-style:none;
 `;
 const NoProductFound = styled.div`
 	width: 70%;

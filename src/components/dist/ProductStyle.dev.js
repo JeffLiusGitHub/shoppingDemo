@@ -40,7 +40,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 5px;\n\tmin-width: 280px;\n\theight: 350px;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: #f5fbfd;\n\tposition: relative;\n\tz-index: 0;\n\ttransition: background-color.25s ease-out, color 0.25s ease-out;\n\t&:hover ", " {\n\t\topacity: 1;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 5px;\n\tmin-width: 280px;\n\theight: 350px;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: #f5fbfd;\n\tposition: relative;\n\tz-index: 0;\n\ttext-decoration:none;\n\ttransition: background-color.25s ease-out, color 0.25s ease-out;\n\t&:hover ", " {\n\t\topacity: 1;\n\t}\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;

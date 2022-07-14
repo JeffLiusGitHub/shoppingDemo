@@ -11,6 +11,9 @@ const Container = styled.ul`
 	padding: 20px;
 	justify-content: space-between;
 	position: relative;
+	list-style-type:none;
+	padding:0;
+	margin:0;
 	${laptop({ padding: '0px', flexDirection: 'column' })}
 `;
 

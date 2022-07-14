@@ -25,6 +25,7 @@ export const Container = styled.li`
 	background-color: #f5fbfd;
 	position: relative;
 	z-index: 0;
+	text-decoration:none;
 	transition: background-color.25s ease-out, color 0.25s ease-out;
 	&:hover ${Info} {
 		opacity: 1;

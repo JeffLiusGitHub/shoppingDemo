@@ -42,7 +42,7 @@ function _templateObject11() {
 }
 
 function _templateObject10() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 50%;\n\tmargin-bottom: 10px;\n"]);
+  var data = _taggedTemplateLiteral(["\n\twidth: 50%;\n\tmargin-bottom: 10px;\n\t/* text-decoration:none; */\n"]);
 
   _templateObject10 = function _templateObject10() {
     return data;
@@ -52,7 +52,7 @@ function _templateObject10() {
 }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n\tcolor: white;\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n\tdisplay: flex;\n\tflex-wrap: wrap;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tcolor: white;\n\tmargin: 0;\n\tpadding: 0;\n\tlist-style: none;\n\tdisplay: flex;\n\tflex-wrap: wrap;\n\tlist-style:none;\n\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;

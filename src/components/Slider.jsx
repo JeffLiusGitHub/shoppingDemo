@@ -36,12 +36,19 @@ const Wrapper = styled.ul`
 	height: 100%;
 	display: flex;
 	transition: all 1.5s ease;
+	list-style:none;
+	list-style-type:none;
+	padding:0;
+	margin:0;
 	transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
 
 const Slide = styled.li`
 	display: flex;
 	align-items: center;
+	text-decoration:none;
+	padding:0;
+	margin:0;
 	width: 100vw;
 	height: 100vh;
 	background-color: #${(props) => props.bg};
