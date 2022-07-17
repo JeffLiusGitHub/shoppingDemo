@@ -26,19 +26,19 @@ export const categories = [
 	{
 		id: 1,
 		img: '//cdn.shopify.com/s/files/1/2994/5194/files/RT_SRE_2022-02-10_BecBridge_27_1618.jpg?v=1655856511',
-		title: 'DRESS',
+		title: 'FEMALE',
 		cat: 'female',
 	},
 	{
 		id: 2,
 		img: '//cdn.shopify.com/s/files/1/2994/5194/files/SRE_2022-02-10_BecBridge_39_2135.jpg?v=1652684393',
-		title: 'KNITWEAR',
+		title: 'JACKET',
 		cat: 'Jacket',
 	},
 	{
 		id: 3,
 		img: '//cdn.shopify.com/s/files/1/2994/5194/files/SRE_2022-02-10_BecBridge_09_0767.jpg?v=1655856739',
-		title: 'OUTWEAR',
+		title: 'MALE',
 		cat: 'male',
 	},
 ];

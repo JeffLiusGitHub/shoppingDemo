@@ -13,7 +13,7 @@ const Container = styled.ul`
 	justify-content: center;
 	position: relative;
 	min-height: 70vh;
-	list-style:none;
+	list-style: none;
 	background-color: #f2f2f2;
 `;
 const NoWishListContainer = styled.div`
@@ -36,9 +36,8 @@ const WishList = () => {
 		<Container>
 			{wishLists.length !== 0
 				? wishLists?.map((w, k) => (
-						<Suspense fallback={<div>Loading...</div>}>
+						<Suspense key={k} fallback={<div>Loading...</div>}>
 							<WishListItem
-								key={k}
 								name={w.name}
 								price={w.price}
 								img={w.img}

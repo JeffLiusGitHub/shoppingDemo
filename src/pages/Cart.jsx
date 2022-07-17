@@ -55,6 +55,10 @@ const Cart = () => {
 	const KEY = process.env.REACT_APP_STRIPE;
 	const cart = useSelector((state) => state.cart);
 	const [token, setToken] = useState(null);
+	const [coupon, setCoupon] = useState('');
+	// const [dirty, setDirty] = useState(false);
+	const [isValidCoupon, setIsValidCoupon] = useState(false);
+	const [error, setError] = useState();
 	const onToken = (token) => {
 		setToken(token);
 	};
@@ -66,6 +70,14 @@ const Cart = () => {
 	};
 	const deleteCurrentProduct = (id, size, color) => {
 		dispatch(deleteProduct({ id: id, size: size, color: color }));
+	};
+	const handleCoupon = (e) => {
+		e.preventDefault();
+		if (coupon.trim().toUpperCase() === 'FRESH12') {
+			if (cart.total > 99) {
+				setIsValidCoupon(true);
+			} else setError('Coupon can only use when you purchase over 99$');
+		} else setError('invalid Coupon');
 	};
 	// useEffect(() => {
 	// 	const request = async () => {
@@ -173,13 +185,34 @@ const Cart = () => {
 							<SummaryItemText>Estimated Shipping</SummaryItemText>
 							<SummaryItemPrice>$ 5.90</SummaryItemPrice>
 						</SummaryItem>
-						<SummaryItem>
-							<SummaryItemText>Shipping Discount</SummaryItemText>
-							<SummaryItemPrice>$ -5.90</SummaryItemPrice>
-						</SummaryItem>
+						{isValidCoupon && (
+							<SummaryItem>
+								<SummaryItemText>Shipping Discount</SummaryItemText>
+								<SummaryItemPrice>$ -5.90</SummaryItemPrice>
+							</SummaryItem>
+						)}
+						<form>
+							<label>
+								Coupon:
+								<input
+									type="text"
+									name="coupon"
+									value={coupon}
+									onChange={(e) => setCoupon(e.target.value)}
+								></input>
+							</label>
+							<button onClick={handleCoupon}>submit</button>
+							{!isValidCoupon && <p style={{ color: 'red' }}>{error}</p>}
+						</form>
 						<SummaryItem type="total">
 							<SummaryItemText>Total</SummaryItemText>
-							<SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+							{isValidCoupon ? (
+								<SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+							) : (
+								<SummaryItemPrice>
+									$ {parseInt(cart.total) + 5.9}
+								</SummaryItemPrice>
+							)}
 						</SummaryItem>
 						<StripeCheckout
 							name="ICONIC"

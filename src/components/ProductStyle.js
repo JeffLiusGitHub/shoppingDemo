@@ -25,7 +25,7 @@ export const Container = styled.li`
 	background-color: #f5fbfd;
 	position: relative;
 	z-index: 0;
-	text-decoration:none;
+	text-decoration: none;
 	transition: background-color.25s ease-out, color 0.25s ease-out;
 	&:hover ${Info} {
 		opacity: 1;
@@ -60,4 +60,24 @@ export const Icon = styled.div`
 		transform: scale(1.3);
 	}
 	justify-content: center;
+`;
+
+export const Search = styled.div`
+	:hover {
+		@keyframes circle-in-hesitate {
+			0% {
+				clip-path: circle(0%);
+			}
+			40% {
+				clip-path: circle(40%);
+			}
+			100% {
+				clip-path: circle(125%);
+			}
+		}
+
+		[transition-style='in:circle:hesitate'] {
+			animation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-hesitate both;
+		}
+	}
 `;

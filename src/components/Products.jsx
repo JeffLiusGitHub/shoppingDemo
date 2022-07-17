@@ -14,7 +14,7 @@ const Container = styled.ul`
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	list-style:none;
+	list-style: none;
 `;
 const NoProductFound = styled.div`
 	width: 70%;
@@ -23,34 +23,36 @@ const Products = ({ category, filter, sort }) => {
 	const [product, setProduct] = useState([]);
 	const [filteredProduct, setFilteredProduct] = useState([]);
 
-	// useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		try {
-	// 			const res = await axios.get(
-	// 				category
-	// 					? `https://iconicshoppingnodejs.herokuapp.com/api/product?category=${category}`
-	// 					: 'https://iconicshoppingnodejs.herokuapp.com/api/product'
-	// 			);
-	// 			setProduct(res.data);
-	// 			if (category === 'all') {
-	// 				const res = await axios.get(
-	// 					'https://iconicshoppingnodejs.herokuapp.com/api/product'
-	// 				);
-	// 				setProduct(res.data);
-	// 			}
-	// 		} catch (error) {
-	// 			console.log(error.message);
-	// 		}
-	// 	};
-	// 	fetchData();
-	// }, [category]);
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const res = await axios.get(
+					category
+						? `https://iconicshoppingnodejs.herokuapp.com/api/product?category=${category}`
+						: 'https://iconicshoppingnodejs.herokuapp.com/api/product'
+				);
+				// console.log(res)
+				setProduct(res.data);
+				if (category === 'all') {
+					const res = await axios.get(
+						'https://iconicshoppingnodejs.herokuapp.com/api/product'
+					);
+					setProduct(res.data);
+				}
+			} catch (error) {
+				console.log(error.message);
+			}
+		};
+		fetchData();
+	}, [category]);
+
 	useEffect(() => {
 		Aos.init({ duration: 2000 });
 	});
 
-	useEffect(() => {
-		setProduct(allData);
-	}, []);
+	// useEffect(() => {
+	// 	setProduct(allData);
+	// }, []);
 
 	useEffect(() => {
 		category &&

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
@@ -6,7 +5,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import { Link } from 'react-router-dom';
 import getAverageColor from 'get-average-color';
 import { useEffect } from 'react';
-import { Info, Container, Circle, Image, Icon } from './ProductStyle';
+import { Info, Container, Circle, Image, Icon, Search } from './ProductStyle';
 import { useDispatch } from 'react-redux';
 import { addToWishList } from '../Redux/WishListSlice';
 const Product = ({ item }) => {
@@ -41,9 +40,11 @@ const Product = ({ item }) => {
 								<ShoppingCartCheckoutOutlinedIcon />
 							</Icon> */}
 						<Icon>
-							<Link to={`/product/${item._id}`}>
-								<SearchOutlinedIcon />
-							</Link>
+							<Search>
+								<Link to={`/product/${item._id}`}>
+									<SearchOutlinedIcon />
+								</Link>
+							</Search>
 						</Icon>
 						<Icon>
 							<FavoriteBorderOutlinedIcon onClick={addToWishListHandler} />

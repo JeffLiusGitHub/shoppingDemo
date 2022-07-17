@@ -7,6 +7,8 @@ const Home = () => {
 	// if (Math.random() > 0.5) {
 	// 	return new Error('Error Occur');
 	// }
+
+	
 	return (
 		<div>
 			<Slider />

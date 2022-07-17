@@ -50,15 +50,15 @@ const Product = () => {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		const getProductDetails = async () => {
-			// try {
-			// 	if (id) {
-			// 		const res = await publicRequest.get('product/find/' + id);
-			// 		setProductDetails(res.data);
-			// 	} else {
-			// 		// <Redirect to=''></Redirect>
-			// 	}
-			// } catch (error) {
-			// }
+			try {
+				if (id) {
+					const res = await publicRequest.get('product/find/' + id);
+					setProductDetails(res.data);
+					console.log(res);
+				} else {
+					// <Redirect to=''></Redirect>
+				}
+			} catch (error) {}
 			if (id) {
 				const detailProduct = allData.filter((data) => data._id === id);
 				setProductDetails(detailProduct[0]);
@@ -136,14 +136,12 @@ const Product = () => {
 							</Filter>
 							<Filter>
 								<FilterTitle>Size</FilterTitle>
-								<FilterSize onChange={(event) => setSize(event.target.value)}>
-									<FilterSizeOption
-										defaultValue="pick up a Size"
-										disabled
-										selected
-									>
-										Pick up a Size
-									</FilterSizeOption>
+								<FilterSize
+									name="pick up a size"
+									defaultValue="Pick up a size"
+									onChange={(event) => setSize(event.target.value)}
+								>
+									<FilterSizeOption disabled>Pick up a Size</FilterSizeOption>
 									{productDetails.size?.map((size) => (
 										<FilterSizeOption key={size}>{size}</FilterSizeOption>
 									))}

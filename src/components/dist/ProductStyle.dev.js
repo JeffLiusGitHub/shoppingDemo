@@ -3,11 +3,21 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Icon = exports.Image = exports.Circle = exports.Container = exports.Info = void 0;
+exports.Search = exports.Icon = exports.Image = exports.Circle = exports.Container = exports.Info = void 0;
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteral(["\n\t:hover {\n\t\t@keyframes circle-in-hesitate {\n\t\t\t0% {\n\t\t\t\tclip-path: circle(0%);\n\t\t\t}\n\t\t\t40% {\n\t\t\t\tclip-path: circle(40%);\n\t\t\t}\n\t\t\t100% {\n\t\t\t\tclip-path: circle(125%);\n\t\t\t}\n\t\t}\n\n\t\t[transition-style='in:circle:hesitate'] {\n\t\t\tanimation: 2.5s cubic-bezier(0.25, 1, 0.3, 1) circle-in-hesitate both;\n\t\t}\n\t}\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
 
 function _templateObject5() {
   var data = _taggedTemplateLiteral(["\n\twidth: 40px;\n\theight: 40px;\n\tborder-radius: 50%;\n\tdisplay: flex;\n\tbackground-color: white;\n\talign-items: center;\n\tmargin: 10px;\n\tstroke: #e9f5f5;\n\ttransition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);\n\tcursor: pointer;\n\t&:hover {\n\t\tfill: #d01111;\n\t\ttransform: scale(1.3);\n\t}\n\tjustify-content: center;\n"]);
@@ -40,7 +50,7 @@ function _templateObject3() {
 }
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 5px;\n\tmin-width: 280px;\n\theight: 350px;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: #f5fbfd;\n\tposition: relative;\n\tz-index: 0;\n\ttext-decoration:none;\n\ttransition: background-color.25s ease-out, color 0.25s ease-out;\n\t&:hover ", " {\n\t\topacity: 1;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\tflex: 1;\n\tmargin: 5px;\n\tmin-width: 280px;\n\theight: 350px;\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\tbackground-color: #f5fbfd;\n\tposition: relative;\n\tz-index: 0;\n\ttext-decoration: none;\n\ttransition: background-color.25s ease-out, color 0.25s ease-out;\n\t&:hover ", " {\n\t\topacity: 1;\n\t}\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -82,3 +92,7 @@ exports.Image = Image;
 var Icon = _styledComponents["default"].div(_templateObject5());
 
 exports.Icon = Icon;
+
+var Search = _styledComponents["default"].div(_templateObject6());
+
+exports.Search = Search;
