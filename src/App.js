@@ -13,6 +13,7 @@ import ErrorFallback from './components/ErrorBoundary';
 import React, { useState } from 'react';
 import DefaultLayout from './pages/DefaultLayout';
 import { ErrorBoundary } from 'react-error-boundary';
+import { useSelector } from 'react-redux';
 const Home = lazy(() => import('./pages/Home'));
 const ProductList = lazy(() => import('./pages/ProductList'));
 const Product = lazy(() => import('./pages/Product'));
@@ -23,6 +24,9 @@ const WishList = lazy(() => import('./pages/WishList'));
 const Success = lazy(() => import('./pages/Success'));
 
 function App() {
+	// const userInfo = useSelector((state) => state.user.currentUser);
+
+	// console.log(userInfo.userName);
 	const [user, setUser] = useState(false);
 	return (
 		<DefaultLayout>

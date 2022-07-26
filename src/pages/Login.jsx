@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../Redux/apiCall';
 import Announcement from '../components/Announcement';
 import { announcement } from '../data';
 import {
@@ -17,6 +16,8 @@ import { Link } from 'react-router-dom';
 import { loginSchema, loginInitialValue } from '../Validations/LoginValidation';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import FormikInput from '../Validations/FormikInput';
+import { publicRequest } from '../axiosRequest';
+import { login } from '../Redux/apiCall';
 const Login = () => {
 	const [userName, setUsername] = useState('');
 	const [password, setPassword] = useState('');
@@ -24,11 +25,15 @@ const Login = () => {
 	const dispatch = useDispatch();
 	const loginHandler = (event) => {
 		event.preventDefault();
-		login(dispatch, { userName, password });
+		// login(dispatch, { userName, password });
 	};
 
-	const handleSubmit = (values) => {
-		alert(JSON.stringify(values));
+	const handleSubmit = async (values) => {
+		// alert(JSON.stringify(values));
+		login(dispatch, values);
+		// const response = await publicRequest.post('auth/login', values);
+		// console.log(response.status);
+		// console.log(response.data.jwtToken);
 	};
 	return (
 		<>
@@ -43,10 +48,10 @@ const Login = () => {
 					>
 						{({ errors, touched, dirty, isValid }) => {
 							return (
-								<Form onSumbit={handleSubmit}>
+								<Form>
 									<FormikInput
-										placeholder="email"
-										name="email"
+										placeholder="user name"
+										name="userName"
 										input={Input}
 										required={true}
 									/>
@@ -70,8 +75,11 @@ const Login = () => {
 										</Link>
 									</LinkContainer>
 									<ButtonContainer>
-										<Button type="submit">LOGIN</Button>
+										<Button type="submit" disabled={isFetching}>
+											LOGIN
+										</Button>
 									</ButtonContainer>
+									{error&&<p style={{color:'red'}}>Something went wrong..</p>}
 								</Form>
 							);
 						}}

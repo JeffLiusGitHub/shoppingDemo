@@ -112,7 +112,7 @@ function _templateObject2() {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n\theight: 60px;\n\t", ";\n\tbackground-color: black;\n\tcolor: white;\n"]);
+  var data = _taggedTemplateLiteral(["\n\theight: 60px;\n\t", ";\n\tbackground-color: black;\n\tcolor: white;\n\tposition: sticky;\n\ttop:0px;\n\tz-index:1000;\n"]);
 
   _templateObject = function _templateObject() {
     return data;

@@ -1,6 +1,6 @@
 import axios from "axios";
-const BASE_URL = "https://iconicshoppingnodejs.herokuapp.com/"
-// const BASE_URL = 'http://localhost:8080/api';
+// const BASE_URL = "https://iconicshoppingnodejs.herokuapp.com/"
+const BASE_URL = 'http://localhost:8080/api';
 
 const TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMTJlMTJkMzBlZjcwMjNlY2ZiOGI0YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY0NTY2NDIxMywiZXhwIjoxNjQ1Njc1MDEzfQ.wMNj_FwBHJDpxiB4TtUaz7E5uTDkFkMWUbugioVr8Gg";
 

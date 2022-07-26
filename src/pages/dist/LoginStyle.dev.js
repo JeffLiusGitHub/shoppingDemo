@@ -32,7 +32,7 @@ function _templateObject8() {
 }
 
 function _templateObject7() {
-  var data = _taggedTemplateLiteral(["\n\talign-self: flex-end;\n\twidth: 40%;\n\tborder: none;\n\tpadding: 15px 20px;\n\tbackground-color: teal;\n\tcolor: white;\n\tcursor: pointer;\n\tmargin-bottom: 10px;\n\tborder-radius: 5px;\n\tbutton:disabled {\n\t\tborder: 1px solid #999999;\n\t\tbackground-color: #cccccc;\n\t\tcolor: #666666;\n\t}\n"]);
+  var data = _taggedTemplateLiteral(["\n\talign-self: flex-end;\n\twidth: 40%;\n\tborder: none;\n\tpadding: 15px 20px;\n\tbackground-color: teal;\n\tcolor: white;\n\tcursor: pointer;\n\tmargin-bottom: 10px;\n\tborder-radius: 5px;\n\t&:disabled {\n\t\tborder: 1px solid #999999;\n\t\tbackground-color: #cccccc;\n\t\tcolor: #666666;\n\t\tcursor: not-allowed;\n\t}\n"]);
 
   _templateObject7 = function _templateObject7() {
     return data;
@@ -141,6 +141,6 @@ var LinkContainer = _styledComponents["default"].div(_templateObject8());
 
 exports.LinkContainer = LinkContainer;
 
-var LinkComponent = _styledComponents["default"].a(_templateObject9());
+var LinkComponent = _styledComponents["default"].p(_templateObject9());
 
 exports.LinkComponent = LinkComponent;

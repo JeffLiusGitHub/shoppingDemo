@@ -6,6 +6,9 @@ export const NavContainer = styled.div`
 	${tablet({ height: '50px' })};
 	background-color: black;
 	color: white;
+	position: sticky;
+	top:0px;
+	z-index:1000;
 `;
 export const Wrapper = styled.div`
 	padding: 10px 20px;

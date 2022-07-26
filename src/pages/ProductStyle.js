@@ -90,7 +90,6 @@ export const ColorFilter = styled.ul`
 	margin-top: 20px;
 	list-style: none;
 	padding: 0;
-	
 `;
 export const ColorDisplayValue = styled.span`
 	font-weight: 500;
@@ -101,6 +100,7 @@ export const FilterColor = styled.li`
 	height: 20px;
 	/* text-decoration: none; */
 	/* list-style: none; */
+	box-sizing: border-box;
 	border-radius: 50%;
 	border: 1px solid rgba(0, 0, 0, 0.4);
 	background-color: ${(props) => props.color};

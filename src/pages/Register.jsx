@@ -12,13 +12,23 @@ import {
 } from './RegisterStyle';
 import { Link } from 'react-router-dom';
 import { LinkComponent, LinkContainer } from './LoginStyle';
+import axios from 'axios';
+// import { register as registerApi } from '../Redux/apiCall';
+import { publicRequest } from '../axiosRequest';
 
 import { userSchema, userInitialValue } from '../Validations/UserValidation';
 import { Formik, Form } from 'formik';
 import FormikInput from '../Validations/FormikInput';
 const Register = () => {
-	const handleSubmit = (values) => {
+	const handleSubmit = async (e, values) => {
+		e.preventDefault();
 		alert(JSON.stringify(values));
+		const response = await publicRequest.post('auth/register', values);
+		// const response = await axios.post(
+		// 	'http://localhost:8080/api/auth/register',
+		// 	values
+		// );
+		console.log(response);
 	};
 
 	return (
@@ -34,7 +44,7 @@ const Register = () => {
 					>
 						{({ errors, touched, dirty, isValid }) => {
 							return (
-								<Form onSumbit={handleSubmit}>
+								<Form onSubmit={handleSubmit}>
 									<FormikInput
 										type="text"
 										required={true}
@@ -78,7 +88,9 @@ const Register = () => {
 										</Link>
 									</LinkContainer>
 									<ButtonContainer>
-										<Button type="submit">CREATE</Button>
+										<Button type="submit" onClick={handleSubmit}>
+											CREATE
+										</Button>
 									</ButtonContainer>
 								</Form>
 							);

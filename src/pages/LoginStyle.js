@@ -59,10 +59,11 @@ export const Button = styled.button`
 	cursor: pointer;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	button:disabled {
+	&:disabled {
 		border: 1px solid #999999;
 		background-color: #cccccc;
 		color: #666666;
+		cursor: not-allowed;
 	}
 `;
 export const LinkContainer = styled.div`
@@ -71,7 +72,7 @@ export const LinkContainer = styled.div`
 	align-items: center;
 `;
 
-export const LinkComponent = styled.a`
+export const LinkComponent = styled.p`
 	margin: 5px 0px;
 	font-size: 12px;
 	text-decoration: underline;
