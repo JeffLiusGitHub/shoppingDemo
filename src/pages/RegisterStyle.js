@@ -73,6 +73,9 @@ export const ButtonContainer = styled.div`
 `;
 
 export const Button = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: 40%;
 	border: none;
 	padding: 15px 20px;
@@ -80,4 +83,11 @@ export const Button = styled.button`
 	color: white;
 	border-radius: 5px;
 	cursor: pointer;
+
+	:disabled,
+[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 `;

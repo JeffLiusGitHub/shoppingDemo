@@ -1,4 +1,5 @@
 import Announcement from '../components/Announcement';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { announcement } from '../data';
 import {
 	Container,
@@ -19,16 +20,19 @@ import { publicRequest } from '../axiosRequest';
 import { userSchema, userInitialValue } from '../Validations/UserValidation';
 import { Formik, Form } from 'formik';
 import FormikInput from '../Validations/FormikInput';
+import { useState } from 'react';
 const Register = () => {
-	const handleSubmit = async (e, values) => {
-		e.preventDefault();
+	const [success, setSuccess] = useState();
+	const handleSubmit = async (values, event) => {
+		event.preventDefault();
+		// console.log(values);
 		alert(JSON.stringify(values));
 		const response = await publicRequest.post('auth/register', values);
-		// const response = await axios.post(
-		// 	'http://localhost:8080/api/auth/register',
-		// 	values
-		// );
-		console.log(response);
+		if (response.status === 201) {
+			console.log('true');
+			setSuccess(true);
+		}
+		// console.log(response.status);
 	};
 
 	return (
@@ -39,12 +43,13 @@ const Register = () => {
 					<Title>CREATE AN ACCOUNT</Title>
 					<Formik
 						initialValues={userInitialValue}
-						onSubmit={handleSubmit}
 						validationSchema={userSchema}
 					>
-						{({ errors, touched, dirty, isValid }) => {
+						{({ errors, touched, dirty, isValid, values }) => {
+							// console.log({ errors, touched, dirty, isValid });
+							// console.log(values);
 							return (
-								<Form onSubmit={handleSubmit}>
+								<Form onSubmit={(event) => handleSubmit(values, event)}>
 									<FormikInput
 										type="text"
 										required={true}
@@ -88,8 +93,12 @@ const Register = () => {
 										</Link>
 									</LinkContainer>
 									<ButtonContainer>
-										<Button type="submit" onClick={handleSubmit}>
-											CREATE
+										<Button
+											type="submit"
+											disabled={!dirty || !isValid}
+											onClick={handleSubmit}
+										>
+											{success ? 'SUCCESS !' : 'CREATE'}
 										</Button>
 									</ButtonContainer>
 								</Form>

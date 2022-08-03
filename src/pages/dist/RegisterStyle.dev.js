@@ -12,7 +12,7 @@ var _responsive = require("../responsive");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _templateObject9() {
-  var data = _taggedTemplateLiteral(["\n\twidth: 40%;\n\tborder: none;\n\tpadding: 15px 20px;\n\tbackground-color: teal;\n\tcolor: white;\n\tborder-radius: 5px;\n\tcursor: pointer;\n"]);
+  var data = _taggedTemplateLiteral(["\n\tdisplay: flex;\n\tjustify-content: center;\n\talign-items: center;\n\twidth: 40%;\n\tborder: none;\n\tpadding: 15px 20px;\n\tbackground-color: teal;\n\tcolor: white;\n\tborder-radius: 5px;\n\tcursor: pointer;\n\n\t:disabled,\n[disabled]{\n  border: 1px solid #999999;\n  background-color: #cccccc;\n  color: #666666;\n}\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
