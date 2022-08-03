@@ -26,7 +26,7 @@ const Register = () => {
 	const handleSubmit = async (values, event) => {
 		event.preventDefault();
 		// console.log(values);
-		alert(JSON.stringify(values));
+		// alert(JSON.stringify(values));
 		const response = await publicRequest.post('auth/register', values);
 		if (response.status === 201) {
 			console.log('true');
