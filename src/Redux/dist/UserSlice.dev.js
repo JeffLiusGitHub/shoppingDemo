@@ -11,6 +11,7 @@ var userSlice = (0, _toolkit.createSlice)({
   name: 'user',
   initialState: {
     currentUser: null,
+    JWT: null,
     isFetching: false,
     error: false
   },
@@ -21,7 +22,8 @@ var userSlice = (0, _toolkit.createSlice)({
     loginSuccess: function loginSuccess(state, action) {
       state.isFetching = false;
       state.error = false;
-      state.currentUser = action.payload;
+      state.currentUser = action.payload.userName;
+      state.JWT = action.payload.jwtToken;
     },
     loginFailure: function loginFailure(state) {
       state.isFetching = false;

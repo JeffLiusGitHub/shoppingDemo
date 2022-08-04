@@ -22,22 +22,23 @@ var login = function login(dispatch, user) {
 
         case 4:
           res = _context.sent;
-          console.log(res);
+          console.log(res.data.userName);
+          console.log(res.data.jwtToken);
           dispatch((0, _UserSlice.loginSuccess)(res.data));
-          _context.next = 12;
+          _context.next = 13;
           break;
 
-        case 9:
-          _context.prev = 9;
+        case 10:
+          _context.prev = 10;
           _context.t0 = _context["catch"](1);
           dispatch((0, _UserSlice.loginFailure)());
 
-        case 12:
+        case 13:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[1, 9]]);
+  }, null, null, [[1, 10]]);
 };
 
 exports.login = login;

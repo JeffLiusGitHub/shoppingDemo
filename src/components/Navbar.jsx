@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Avatar from '@mui/material/Avatar';
+import { green } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -21,6 +22,8 @@ import {
 } from './NavbarStyle';
 
 const Navbar = () => {
+	const userName = useSelector((state) => state.user.currentUser);
+	console.log(userName);
 	const cartQuantity = useSelector((state) => state.cart.quantity);
 	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 
@@ -46,9 +49,20 @@ const Navbar = () => {
 					>
 						<MenuItem>REGISTER</MenuItem>
 					</Link>
-					<Link to="/login" style={{ textDecoration: 'none', color: 'white' }}>
-						<MenuItem>SIGNIN</MenuItem>
-					</Link>
+
+					{!userName ? (
+						<Link
+							to="/login"
+							style={{ textDecoration: 'none', color: 'white' }}
+						>
+							<MenuItem>SIGNIN</MenuItem>
+						</Link>
+					) : (
+						<Avatar sx={{ bgcolor: green[500], height: '30px', width: '30px' }}>
+							{userName[0].toUpperCase()}
+						</Avatar>
+					)}
+
 					<CartIcon>
 						<Link
 							to="/wishlist"
