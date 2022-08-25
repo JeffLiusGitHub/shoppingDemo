@@ -81,7 +81,12 @@ const Navbar = () => {
 								color="inherit"
 							>
 								<Avatar
-									sx={{ bgcolor: green[500], height: '30px', width: '30px' }}
+									sx={{
+										bgcolor: green[500],
+										height: { xs: '15px', sm: '25px', md: '30px' },
+										width: { xs: '15px', sm: '25px', md: '30px' },
+										fontSize: { xs: '12px', sm: '22px', md: '27px' },
+									}}
 								>
 									{userName[0].toUpperCase()}
 								</Avatar>
