@@ -28,6 +28,7 @@ export const TopButton = styled.button`
 		props.type === 'filled' ? 'black' : 'transparent'};
 	color: ${(props) => props.type === 'filled' && 'white'};
 	${mobile({ fontSize: '10px' })}
+	
 `;
 
 export const TopTexts = styled.div`
@@ -171,6 +172,13 @@ export const Button = styled.button`
 	background-color: black;
 	color: white;
 	font-weight: 600;
+
+	:disabled,
+[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
 `;
 
 export const Container = styled.div`

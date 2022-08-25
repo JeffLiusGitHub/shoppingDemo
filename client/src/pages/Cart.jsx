@@ -50,6 +50,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
+	const tokenFromRedux = useSelector((state) => state.user.JWT);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const KEY = process.env.REACT_APP_STRIPE;
@@ -59,6 +60,7 @@ const Cart = () => {
 	// const [dirty, setDirty] = useState(false);
 	const [isValidCoupon, setIsValidCoupon] = useState(false);
 	const [error, setError] = useState();
+	const [isLogin, setIsLogin] = useState(false);
 	const onToken = (token) => {
 		setToken(token);
 	};
@@ -79,17 +81,22 @@ const Cart = () => {
 			} else setError('Coupon can only use when you purchase over 99$');
 		} else setError('invalid Coupon');
 	};
-	useEffect(()=>{
-		const request = async()=>{
-			try{
-				const req = await userRequest.post('/carts')
+	useEffect(() => {
+		// console.log(localStorage.getItem('token'));
+		const authToken = async () => {
+			try {
+				const res = await userRequest.post('/auth/auth', {
+					token: `Bearer ${tokenFromRedux}`,
+				});
+				setIsLogin(res.data.auth);
+				// console.log(res.data.auth);
+			} catch (error) {
+				setIsLogin(false)
+				console.log(error);
 			}
-			catch(error){
-				console.log(error)
-			}
-		}
-		request()
-	},[])
+		};
+		authToken();
+	}, [tokenFromRedux]);
 
 	// useEffect(() => {
 	// 	const request = async () => {
@@ -133,7 +140,9 @@ const Cart = () => {
 						token={onToken}
 						stripeKey={KEY}
 					>
-						<TopButton type="filled">CHECKOUT NOW</TopButton>
+						<TopButton type="filled" disabled={!isLogin}>
+							{isLogin ? 'CHECKOUT NOW' : 'LOGIN BEFORE CHECKOUT'}
+						</TopButton>
 					</StripeCheckout>
 				</Top>
 				<Bottom>
@@ -236,7 +245,9 @@ const Cart = () => {
 							token={onToken}
 							stripeKey={KEY}
 						>
-							<Button>CHECKOUT NOW</Button>
+							<Button disabled={!isLogin}>
+								{isLogin ? 'CHECKOUT NOW' : 'LOGIN BEFORE CHECKOUT'}
+							</Button>
 						</StripeCheckout>
 					</Summary>
 				</Bottom>

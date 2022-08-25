@@ -28,8 +28,8 @@ const Products = ({ category, filter, sort }) => {
 			try {
 				const res = await axios.get(
 					category
-						? `https://iconicshoppingnodejs.herokuapp.com/api/product?category=${category}`
-						: 'https://iconicshoppingnodejs.herokuapp.com/api/product'
+						? `https://jeff-shopping-website.herokuapp.com/api/product?category=${category}`
+						: 'https://jeff-shopping-website.herokuapp.com/api/product'
 				);
 				// console.log(res)
 				setProduct(res.data);
