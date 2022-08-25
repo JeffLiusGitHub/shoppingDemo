@@ -30,7 +30,6 @@ const Navbar = () => {
 	const [anchorEl, setAnchorEl] = useState(null);
 	const userName = useSelector((state) => state.user.currentUser);
 	const dispatch = useDispatch();
-	console.log(userName);
 	const cartQuantity = useSelector((state) => state.cart.quantity);
 	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 	const handleClose = () => {

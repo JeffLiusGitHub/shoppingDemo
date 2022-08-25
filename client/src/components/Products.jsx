@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { useState } from 'react';
 import productNotFound from '../asset/productNotFound.png';
@@ -6,7 +6,6 @@ import Product from './Product';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
-import { allData } from '../data';
 
 const Container = styled.ul`
 	padding: 20px;
@@ -31,7 +30,6 @@ const Products = ({ category, filter, sort }) => {
 						? `https://jeff-shopping-website.herokuapp.com/api/product?category=${category}`
 						: 'https://jeff-shopping-website.herokuapp.com/api/product'
 				);
-				// console.log(res)
 				setProduct(res.data);
 				if (category === 'all') {
 					const res = await axios.get(
@@ -49,10 +47,6 @@ const Products = ({ category, filter, sort }) => {
 	useEffect(() => {
 		Aos.init({ duration: 2000 });
 	});
-
-	// useEffect(() => {
-	// 	setProduct(allData);
-	// }, []);
 
 	useEffect(() => {
 		category &&

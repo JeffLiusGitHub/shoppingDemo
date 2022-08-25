@@ -5,8 +5,6 @@ export const login = async (dispatch, user) => {
 	dispatch(loginStart());
 	try {
 		const res = await publicRequest.post('/auth/login', user);
-		console.log(res.data.userName);
-		console.log(res.data.jwtToken);
 		localStorage.setItem('token', 'Bearer ' + res.data.jwtToken);
 		dispatch(loginSuccess(res.data));
 	} catch (error) {
@@ -17,7 +15,6 @@ export const login = async (dispatch, user) => {
 export const register = async (registerData) => {
 	try {
 		const res = publicRequest.post('/auth/register', registerData);
-		console.log(res);
 	} catch (error) {
 		console.log(error);
 	}

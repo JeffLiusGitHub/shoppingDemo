@@ -1,5 +1,4 @@
 import Announcement from '../components/Announcement';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { announcement } from '../data';
 import {
 	Container,
@@ -13,10 +12,7 @@ import {
 } from './RegisterStyle';
 import { Link } from 'react-router-dom';
 import { LinkComponent, LinkContainer } from './LoginStyle';
-import axios from 'axios';
-// import { register as registerApi } from '../Redux/apiCall';
 import { publicRequest } from '../axiosRequest';
-
 import { userSchema, userInitialValue } from '../Validations/UserValidation';
 import { Formik, Form } from 'formik';
 import FormikInput from '../Validations/FormikInput';
@@ -25,14 +21,10 @@ const Register = () => {
 	const [success, setSuccess] = useState();
 	const handleSubmit = async (values, event) => {
 		event.preventDefault();
-		// console.log(values);
-		// alert(JSON.stringify(values));
 		const response = await publicRequest.post('auth/register', values);
 		if (response.status === 201) {
-			console.log('true');
 			setSuccess(true);
 		}
-		// console.log(response.status);
 	};
 
 	return (
@@ -46,8 +38,6 @@ const Register = () => {
 						validationSchema={userSchema}
 					>
 						{({ errors, touched, dirty, isValid, values }) => {
-							// console.log({ errors, touched, dirty, isValid });
-							// console.log(values);
 							return (
 								<Form onSubmit={(event) => handleSubmit(values, event)}>
 									<FormikInput

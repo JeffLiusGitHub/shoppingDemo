@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { userRequest } from '../axiosRequest';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
 	addProductQuantity,
@@ -51,13 +50,11 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
 	const tokenFromRedux = useSelector((state) => state.user.JWT);
-	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const KEY = process.env.REACT_APP_STRIPE;
 	const cart = useSelector((state) => state.cart);
 	const [token, setToken] = useState(null);
 	const [coupon, setCoupon] = useState('');
-	// const [dirty, setDirty] = useState(false);
 	const [isValidCoupon, setIsValidCoupon] = useState(false);
 	const [error, setError] = useState();
 	const [isLogin, setIsLogin] = useState(false);
@@ -82,14 +79,12 @@ const Cart = () => {
 		} else setError('invalid Coupon');
 	};
 	useEffect(() => {
-		// console.log(localStorage.getItem('token'));
 		const authToken = async () => {
 			try {
 				const res = await userRequest.post('/auth/auth', {
 					token: `Bearer ${tokenFromRedux}`,
 				});
 				setIsLogin(res.data.auth);
-				// console.log(res.data.auth);
 			} catch (error) {
 				setIsLogin(false)
 				console.log(error);
@@ -98,24 +93,6 @@ const Cart = () => {
 		authToken();
 	}, [tokenFromRedux]);
 
-	// useEffect(() => {
-	// 	const request = async () => {
-	// 		try {
-	// 			const req = await userRequest.post('checkout/payment', {
-	// 				tokenId: token.id,
-	// 				amount: cart.total * 100,
-	// 			});
-	// 			navigate('/success', {
-	// 				stripeData: req.data,
-	// 				products: cart,
-	// 			});
-	// 			token && request();
-	// 		} catch (error) {
-	// 			console.log(error);
-	// 		}
-	// 		request();
-	// 	};
-	// }, [token, cart, navigate]);
 
 	return (
 		<Container>

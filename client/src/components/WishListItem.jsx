@@ -105,7 +105,6 @@ const WishListItem = ({ img, name, price, id }) => {
 	const dispatch = useDispatch();
 
 	const DeleteFavouriteHandler = (id) => {
-		console.log(id);
 		dispatch(deleteFromWishList(id));
 	};
 	return (

@@ -1,19 +1,10 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-// import Home from './pages/Home';
-// import ProductList from './pages/ProductList';
-// import Product from './pages/Product';
-// import Login from './pages/Login';
-// import Register from './pages/Register';
-// import Cart from './pages/Cart';
-// import Success from './pages/Success';
-// import WishList from './pages/WishList';
 import ErrorFallback from './components/ErrorBoundary';
 import React, { useState } from 'react';
 import DefaultLayout from './pages/DefaultLayout';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useSelector } from 'react-redux';
 const Home = lazy(() => import('./pages/Home'));
 const ProductList = lazy(() => import('./pages/ProductList'));
 const Product = lazy(() => import('./pages/Product'));
@@ -21,12 +12,9 @@ const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const Cart = lazy(() => import('./pages/Cart'));
 const WishList = lazy(() => import('./pages/WishList'));
-const Success = lazy(() => import('./pages/Success'));
 
 function App() {
-	// const userInfo = useSelector((state) => state.user.currentUser);
 
-	// console.log(userInfo.userName);
 	const [user, setUser] = useState(false);
 	return (
 		<DefaultLayout>
@@ -42,7 +30,6 @@ function App() {
 							path="/register"
 							element={user ? <Navigate replace to="/" /> : <Register />}
 						/>
-						<Route path="/success" element={<Success />} />
 						<Route path="/login" element={<Login />} />
 						<Route
 							path="/product"
