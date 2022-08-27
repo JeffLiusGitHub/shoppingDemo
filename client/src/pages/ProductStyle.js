@@ -2,6 +2,13 @@ import styled from 'styled-components';
 import { laptop, mobile } from '../responsive';
 export const Container = styled.div`
 	background-color: #e4e4e4dc;
+	position: relative;
+`;
+export const FabContainer = styled.div`
+	position: fixed;
+	right: 5vw;
+	top: 70vh;
+	z-index:100;
 `;
 
 export const Wrapper = styled.div`

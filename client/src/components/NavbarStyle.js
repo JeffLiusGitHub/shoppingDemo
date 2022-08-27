@@ -33,6 +33,7 @@ export const Right = styled.div`
 	align-items: center;
 	justify-content: flex-end;
 	${mobile({ flex: 2 })};
+	z-index:1000;
 `;
 export const Language = styled.span`
 	font-size: 14px;

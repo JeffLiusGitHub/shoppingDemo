@@ -37,6 +37,7 @@ const Navbar = () => {
 		localStorage.removeItem('token');
 		dispatch(logOut());
 	};
+
 	const handleMenu = (event) => {
 		setAnchorEl(event.currentTarget);
 	};

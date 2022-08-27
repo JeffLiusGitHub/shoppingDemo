@@ -10,12 +10,12 @@ import {
 	Input,
 	Button,
 } from './NewsLetterStyle';
-import FormikInput from '../Validations/FormikInput';
+
 import {
 	newsLetterInitialValue,
 	newsLetterSchema,
 } from '../Validations/dist/NewsLetter';
-//validation on progress
+
 
 const Newsletter = () => {
 	const [open, setOpen] = useState(false);
