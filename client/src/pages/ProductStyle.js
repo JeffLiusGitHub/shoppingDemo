@@ -8,7 +8,7 @@ export const FabContainer = styled.div`
 	position: fixed;
 	right: 5vw;
 	top: 70vh;
-	z-index:100;
+	z-index: 100;
 `;
 
 export const Wrapper = styled.div`
@@ -21,7 +21,7 @@ export const ImgContainer = styled.div`
 	flex: 1;
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
 	width: 90%;
 	height: 80vh;
 	object-fit: cover;

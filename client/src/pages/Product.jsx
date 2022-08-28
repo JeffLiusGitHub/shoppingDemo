@@ -42,6 +42,7 @@ import CustomDrawer from '../components/CustomDrawer';
 import CompleteStatus from '../components/CompleteStatus';
 import CustomBackDrop from '../components/CustomBackDrop';
 import QRcodeComponent from '../components/QRcodeComponent';
+import Magnifier from 'react-magnifier';
 const Product = () => {
 	const location = useLocation();
 	const id = location.pathname.split('/')[2];
@@ -128,7 +129,11 @@ const Product = () => {
 				{productDetails && (
 					<Wrapper>
 						<ImgContainer>
-							{productDetails.img && <Image src={productDetails.img} />}
+							{productDetails.img && (
+								<Image>
+									<Magnifier src={productDetails.img} width={'100%'} />
+								</Image>
+							)}
 						</ImgContainer>
 						<InfoContainer>
 							<Title>{productDetails.title}</Title>
