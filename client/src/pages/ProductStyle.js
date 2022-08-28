@@ -23,9 +23,9 @@ export const ImgContainer = styled.div`
 
 export const Image = styled.div`
 	width: 90%;
-	height: 80vh;
+	/* height: 80vh; */
 	object-fit: cover;
-	${mobile({ height: '40vh' })}
+	${mobile({ height: '40vh', width: '100%' })}
 `;
 
 export const InfoContainer = styled.div`
@@ -38,15 +38,17 @@ export const InfoContainer = styled.div`
 export const Title = styled.h1`
 	font-weight: 400;
 	font-size: 80px;
-	${laptop({ fontSize: '60px' })}
+	${laptop({ fontSize: '40px' })}
+	${mobile({ fontSize: '30px' })}
 `;
 
 export const Desc = styled.p`
 	font-size: 30px;
-	width: 70%;
+	width: 80%;
 	margin: 20px 0px;
 	text-align: left;
 	${laptop({ width: '100%', fontSize: '25px' })}
+	${mobile({ width: '100%', fontSize: '20px' })}
 `;
 
 export const Discount = styled.div`
@@ -69,6 +71,7 @@ export const Discount = styled.div`
 export const Price = styled.span`
 	font-weight: 300;
 	font-size: 55px;
+	${laptop({ fontSize:'45px' })}
 `;
 
 export const FilterContainer = styled.div`
@@ -159,6 +162,7 @@ export const Amount = styled.span`
 	align-items: center;
 	justify-content: center;
 	margin: 0px 5px;
+
 `;
 
 export const Button = styled.button`
