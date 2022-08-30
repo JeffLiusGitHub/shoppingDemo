@@ -35,6 +35,8 @@ const Navbar = () => {
 	const handleClose = () => {
 		setAnchorEl(null);
 		localStorage.removeItem('token');
+		localStorage.removeItem('userName');
+		localStorage.removeItem('_id');
 		dispatch(logOut());
 	};
 

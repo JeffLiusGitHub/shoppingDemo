@@ -2,7 +2,9 @@ import './App.css';
 import { lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import ErrorFallback from './components/ErrorBoundary';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from './Redux/UserSlice';
 import DefaultLayout from './pages/DefaultLayout';
 import { ErrorBoundary } from 'react-error-boundary';
 const Home = lazy(() => import('./pages/Home'));
@@ -14,8 +16,25 @@ const Cart = lazy(() => import('./pages/Cart'));
 const WishList = lazy(() => import('./pages/WishList'));
 
 function App() {
-
 	const [user, setUser] = useState(false);
+	const dispatch = useDispatch();
+	// console.log(
+	// 	localStorage.getItem('userName') &&
+	// 		localStorage.getItem('token') !== 'undefined'
+	// );
+	useEffect(() => {
+		if (
+			localStorage.getItem('userName') &&
+			localStorage.getItem('token') !== 'undefined'
+		) {
+			const currentUser = localStorage.getItem('userName');
+			const JWT = localStorage.getItem('token');
+			const _id = localStorage.getItem('_id');
+			dispatch(
+				loginSuccess({ userName: currentUser, jwtToken: JWT, _id: _id })
+			);
+		}
+	}, []);
 	return (
 		<DefaultLayout>
 			<ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}}>

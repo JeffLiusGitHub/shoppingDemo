@@ -2,9 +2,11 @@ import { Add, Remove } from '@material-ui/icons';
 import Newsletter from '../components/Newsletter';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { publicRequest } from '../axiosRequest';
+import { userRequest } from '../axiosRequest';
+// import useAxiosRequest from '../axiosRequest';
 import { addProductsToCart } from '../Redux/CartSlice';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { allData } from '../data';
 import CustomAccordion from '../components/CustomAccordion';
 import { shippingInfo } from '../data';
@@ -43,6 +45,7 @@ import CompleteStatus from '../components/CompleteStatus';
 import CustomBackDrop from '../components/CustomBackDrop';
 import QRcodeComponent from '../components/QRcodeComponent';
 import Magnifier from 'react-magnifier';
+
 const Product = () => {
 	const location = useLocation();
 	const id = location.pathname.split('/')[2];
@@ -54,11 +57,14 @@ const Product = () => {
 	const [open, setOpen] = useState(false);
 	const [backdropOpen, setBackdropOpen] = useState(false);
 	const dispatch = useDispatch();
+	const { _id } = useSelector((state) => state.user);
+
+
 	useEffect(() => {
 		const getProductDetails = async () => {
 			try {
 				if (id) {
-					const res = await publicRequest.get('product/find/' + id);
+					const res = await userRequest.get('product/find/' + id);
 					setProductDetails(res.data);
 					console.log(res);
 				} else {
@@ -75,6 +81,24 @@ const Product = () => {
 	const handleToggle = () => {
 		setBackdropOpen(!backdropOpen);
 	};
+
+	const sendCartToServer = async () => {
+		const productData = {
+			userId: _id,
+			products: {
+				productId: '123',
+				quantity: 2,
+				color: 'red',
+			},
+		};
+		try {
+			const res = await userRequest.post('/carts', productData);
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	const addToCartHandler = () => {
 		setClick(true);
 
@@ -93,6 +117,7 @@ const Product = () => {
 					quantity,
 				})
 			);
+			sendCartToServer();
 			setOpen(true);
 		}
 	};

@@ -7,6 +7,7 @@ const userSlice = createSlice({
 		JWT: null,
 		isFetching: false,
 		error: false,
+		_id: null,
 	},
 	reducers: {
 		loginStart: (state) => {
@@ -17,6 +18,7 @@ const userSlice = createSlice({
 			state.error = false;
 			state.currentUser = action.payload.userName;
 			state.JWT = action.payload.jwtToken;
+			state._id = action.payload._id;
 		},
 		loginFailure: (state) => {
 			state.isFetching = false;
