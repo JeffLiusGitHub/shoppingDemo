@@ -3,10 +3,11 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import ErrorFallback from './components/ErrorBoundary';
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginSuccess } from './Redux/UserSlice';
 import DefaultLayout from './pages/DefaultLayout';
 import { ErrorBoundary } from 'react-error-boundary';
+import useAuth from './Validations/useAuth';
 const Home = lazy(() => import('./pages/Home'));
 const ProductList = lazy(() => import('./pages/ProductList'));
 const Product = lazy(() => import('./pages/Product'));
@@ -16,16 +17,19 @@ const Cart = lazy(() => import('./pages/Cart'));
 const WishList = lazy(() => import('./pages/WishList'));
 
 function App() {
+	const tokenFromRedux = useSelector((state) => state.user.JWT);
+	const { isLogin, authToken } = useAuth();
 	const [user, setUser] = useState(false);
 	const dispatch = useDispatch();
-	// console.log(
-	// 	localStorage.getItem('userName') &&
-	// 		localStorage.getItem('token') !== 'undefined'
-	// );
+
 	useEffect(() => {
+		authToken();
+		// console.log(isLogin);
 		if (
 			localStorage.getItem('userName') &&
-			localStorage.getItem('token') !== 'undefined'
+			localStorage.getItem('token') &&
+			localStorage.getItem('_id') !== 'undefined'
+			// isLogin
 		) {
 			const currentUser = localStorage.getItem('userName');
 			const JWT = localStorage.getItem('token');
@@ -34,7 +38,7 @@ function App() {
 				loginSuccess({ userName: currentUser, jwtToken: JWT, _id: _id })
 			);
 		}
-	}, []);
+	}, [tokenFromRedux]);
 	return (
 		<DefaultLayout>
 			<ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}}>

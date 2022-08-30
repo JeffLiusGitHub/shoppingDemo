@@ -10,31 +10,32 @@ import {
 	REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+
 import cartReducer from './CartSlice';
 import userReducer from './UserSlice';
 import wishListReducer from './WishListSlice';
 
-// const persistConfig = {
-// 	key: 'root',
-// 	version: 1,
-// 	storage,
-// };
+const persistConfig = {
+	key: 'root',
+	version: 1,
+	storage,
+};
 
-// const persistedReducer = persistReducer(persistConfig, userReducer);
-export default configureStore({
+const persistedReducer = persistReducer(persistConfig, userReducer);
+
+export const store = configureStore({
 	reducer: {
 		cart: cartReducer,
-		user:
-			// persistedReducer,
-			userReducer,
+		user: persistedReducer,
+		// userReducer,
 		wishList: wishListReducer,
 	},
-	// middleware: (getDefaultMiddleware) =>
-	// 	getDefaultMiddleware({
-	// 		serializableCheck: {
-	// 			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-	// 		},
-	// 	}),
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware({
+			serializableCheck: {
+				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+		}),
 });
 
-// export let persistor = persistStore(configureStore);
+export let persistor = persistStore(store);

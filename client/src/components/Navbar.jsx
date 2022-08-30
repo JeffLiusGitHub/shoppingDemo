@@ -34,9 +34,10 @@ const Navbar = () => {
 	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 	const handleClose = () => {
 		setAnchorEl(null);
-		localStorage.removeItem('token');
-		localStorage.removeItem('userName');
-		localStorage.removeItem('_id');
+		// localStorage.removeItem('token');
+		// localStorage.removeItem('userName');
+		// localStorage.removeItem('_id');
+		// localStorage.clear();
 		dispatch(logOut());
 	};
 

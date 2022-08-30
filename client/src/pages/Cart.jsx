@@ -50,6 +50,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
 	const tokenFromRedux = useSelector((state) => state.user.JWT);
+	console.log({ tokenFromRedux });
 	const dispatch = useDispatch();
 	const KEY = process.env.REACT_APP_STRIPE;
 	const cart = useSelector((state) => state.cart);
@@ -81,18 +82,15 @@ const Cart = () => {
 	useEffect(() => {
 		const authToken = async () => {
 			try {
-				const res = await userRequest.post('/auth/auth', {
-					token: `Bearer ${tokenFromRedux}`,
-				});
+				const res = await userRequest.post('/auth/auth', {});
 				setIsLogin(res.data.auth);
 			} catch (error) {
-				setIsLogin(false)
+				setIsLogin(false);
 				console.log(error);
 			}
 		};
 		authToken();
 	}, [tokenFromRedux]);
-
 
 	return (
 		<Container>
