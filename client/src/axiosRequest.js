@@ -2,8 +2,8 @@ import axios from 'axios';
 // import { useSelector } from "react-redux";
 
 // const BASE_URL = "https://iconicshoppingnodejs.herokuapp.com/api"
-// const BASE_URL = 'https://jeff-shopping-website.herokuapp.com/api';
-const BASE_URL = 'http://localhost:8080/api';
+const BASE_URL = 'https://jeff-shopping-website.herokuapp.com/api';
+// const BASE_URL = 'http://localhost:8080/api';
 
 // const token =
 // 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZWE3MDkwMDVjMjFjMTRhYzM1YWQyYSIsImVtYWlsIjoiamVmZkBzaW5hLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjE5OTUzNTksImV4cCI6MTY2MjAxMzM1OX0.T3E9RhKZNl4YQrD24KiUb_qSSXtxjYHXHD5Z9LsIorQ';
