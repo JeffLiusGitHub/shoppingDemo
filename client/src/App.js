@@ -15,30 +15,30 @@ const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const Cart = lazy(() => import('./pages/Cart'));
 const WishList = lazy(() => import('./pages/WishList'));
-
+const AdminTable = lazy(() => import('./pages/AdminTable'));
 function App() {
-	const tokenFromRedux = useSelector((state) => state.user.JWT);
-	const { isLogin, authToken } = useAuth();
+	// const tokenFromRedux = useSelector((state) => state.user.JWT);
+	// const { isLogin, authToken } = useAuth();
 	const [user, setUser] = useState(false);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		authToken();
-		// console.log(isLogin);
-		if (
-			localStorage.getItem('userName') &&
-			localStorage.getItem('token') &&
-			localStorage.getItem('_id') !== 'undefined'
-			// isLogin
-		) {
-			const currentUser = localStorage.getItem('userName');
-			const JWT = localStorage.getItem('token');
-			const _id = localStorage.getItem('_id');
-			dispatch(
-				loginSuccess({ userName: currentUser, jwtToken: JWT, _id: _id })
-			);
-		}
-	}, [tokenFromRedux]);
+	// useEffect(() => {
+	// 	authToken();
+	// 	// console.log(isLogin);
+	// 	if (
+	// 		localStorage.getItem('userName') &&
+	// 		localStorage.getItem('token') &&
+	// 		localStorage.getItem('_id') !== 'undefined'
+	// 		// isLogin
+	// 	) {
+	// 		const currentUser = localStorage.getItem('userName');
+	// 		const JWT = localStorage.getItem('token');
+	// 		const _id = localStorage.getItem('_id');
+	// 		dispatch(
+	// 			loginSuccess({ userName: currentUser, jwtToken: JWT, _id: _id })
+	// 		);
+	// 	}
+	// }, [tokenFromRedux]);
 	return (
 		<DefaultLayout>
 			<ErrorBoundary FallbackComponent={ErrorFallback} onReset={() => {}}>
@@ -48,6 +48,7 @@ function App() {
 						<Route path="/products/:category" element={<ProductList />} />
 						<Route path="/product/:id" element={<Product />} />
 						<Route path="/cart" element={<Cart />} />
+						<Route path="/admintable" element={<AdminTable />} />
 						<Route path="/success" element={<h1>success</h1>} />
 						<Route
 							path="/register"

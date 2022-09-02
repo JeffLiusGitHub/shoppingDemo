@@ -5,11 +5,13 @@ import axios from 'axios';
 // const BASE_URL = 'https://jeff-shopping-website.herokuapp.com/api';
 const BASE_URL = 'http://localhost:8080/api';
 
-const token = JSON.parse(localStorage.getItem('persist:root'))?.JWT?.replaceAll(
+// const token =
+// 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZWE3MDkwMDVjMjFjMTRhYzM1YWQyYSIsImVtYWlsIjoiamVmZkBzaW5hLmNvbSIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NjE5OTUzNTksImV4cCI6MTY2MjAxMzM1OX0.T3E9RhKZNl4YQrD24KiUb_qSSXtxjYHXHD5Z9LsIorQ';
+const token = JSON.parse(localStorage.getItem('persist:user'))?.JWT?.replaceAll(
 	'"',
 	''
 );
-console.log(token);
+
 // const TOKEN =
 // 	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZWE3MmQyMDVjMjFjMTRhYzM1YWQzNiIsImVtYWlsIjoiYWFAYWEuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2MTMzMjc4NywiZXhwIjoxNjYxMzMzMzg3fQ.Vgftujp2HLevKh64TmgwqC6cklzUrNqhUvCqptZW0_s';
 

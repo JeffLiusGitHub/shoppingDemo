@@ -6,9 +6,11 @@ import { Link } from 'react-router-dom';
 import getAverageColor from 'get-average-color';
 import { useEffect } from 'react';
 import { Info, Container, Circle, Image, Icon, Search } from './ProductStyle';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToWishList } from '../Redux/WishListSlice';
+import { userRequest } from '../axiosRequest';
 const Product = ({ item }) => {
+	console.log(item);
 	const [color, setColor] = useState();
 	const dispatch = useDispatch();
 	useEffect(() => {
@@ -16,6 +18,23 @@ const Product = ({ item }) => {
 			setColor(`rgba(${rgb.r},${rgb.g},${rgb.b},0.7)`)
 		);
 	}, [item.img]);
+	const { _id } = useSelector((state) => state.user);
+
+	const sendWishListToServer = async () => {
+		const productData = {
+			userId: _id,
+			title: item.title,
+			price: item.price,
+			_id: item._id,
+			img: item.img,
+		};
+		try {
+			const res = await userRequest.post('/wishList', productData);
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const addToWishListHandler = () => {
 		dispatch(
@@ -28,6 +47,7 @@ const Product = ({ item }) => {
 				},
 			})
 		);
+		sendWishListToServer();
 	};
 
 	return (

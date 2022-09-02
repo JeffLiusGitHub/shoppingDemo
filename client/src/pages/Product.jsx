@@ -59,7 +59,6 @@ const Product = () => {
 	const dispatch = useDispatch();
 	const { _id } = useSelector((state) => state.user);
 
-
 	useEffect(() => {
 		const getProductDetails = async () => {
 			try {
@@ -86,9 +85,11 @@ const Product = () => {
 		const productData = {
 			userId: _id,
 			products: {
-				productId: '123',
-				quantity: 2,
-				color: 'red',
+				img: productDetails.img,
+				productId: productDetails._id,
+				quantity: quantity,
+				color: color,
+				size: size,
 			},
 		};
 		try {
@@ -98,6 +99,9 @@ const Product = () => {
 			console.log(error);
 		}
 	};
+
+
+	
 
 	const addToCartHandler = () => {
 		setClick(true);

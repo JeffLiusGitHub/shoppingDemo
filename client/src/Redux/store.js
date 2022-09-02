@@ -16,19 +16,34 @@ import userReducer from './UserSlice';
 import wishListReducer from './WishListSlice';
 
 const persistConfig = {
-	key: 'root',
+	key: 'user',
 	version: 1,
 	storage,
 };
+const cartPersistConfig = {
+	key: 'cart',
+	version: 1,
+	storage,
+};
+const wishListPersistConfig = {
+	key: 'wishlist',
+	version: 1,
+	storage,
+};
+const cartPersistedReducer = persistReducer(cartPersistConfig, cartReducer);
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
 
+const wishListpersistedReducer = persistReducer(
+	wishListPersistConfig,
+	wishListReducer
+);
+
 export const store = configureStore({
 	reducer: {
-		cart: cartReducer,
+		cart: cartPersistedReducer,
 		user: persistedReducer,
-		// userReducer,
-		wishList: wishListReducer,
+		wishList: wishListpersistedReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({

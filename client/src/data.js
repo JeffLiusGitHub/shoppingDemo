@@ -321,8 +321,11 @@ export const shippingInfo = [
 	},
 ];
 
-
-export const announcement = ['Enjoy complimentary shipping on all orders + free shipping (contacts orders $99+). Code: FRESH12 (see terms)','this page cannot do the function due to the backend shut down','please do not type your real card information for testing ']
+export const announcement = [
+	'Enjoy complimentary shipping on all orders + free shipping (contacts orders $99+). Code: FRESH12 (see terms)',
+	'if you want to see the dashboard, please type name:admin,password:11111111 eight 1',
+	'please do not type your real card information for testing ',
+];
 
 export const usefulLinkList = [
 	'Home',

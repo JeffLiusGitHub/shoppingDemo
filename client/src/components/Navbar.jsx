@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { green } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,9 +9,11 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { logOut } from '../Redux/UserSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchWishList } from '../Redux/apiCall';
+import InventoryIcon from '@mui/icons-material/Inventory';
+
 import {
 	NavContainer,
 	Wrapper,
@@ -28,18 +30,26 @@ import {
 
 const Navbar = () => {
 	const [anchorEl, setAnchorEl] = useState(null);
-	const userName = useSelector((state) => state.user.currentUser);
+	const {
+		currentUser: userName,
+		_id,
+		isAdmin,
+	} = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 	const cartQuantity = useSelector((state) => state.cart.quantity);
+	// const wishListsQuantity = useSelector((state) => state.wishList.quantity);
+	// const [wishListsQuantity, setWishListsQuantity] = useState();
 	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 	const handleClose = () => {
 		setAnchorEl(null);
-		// localStorage.removeItem('token');
-		// localStorage.removeItem('userName');
-		// localStorage.removeItem('_id');
-		// localStorage.clear();
 		dispatch(logOut());
 	};
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const result = await fetchWishList(_id);
+	// 		setWishListsQuantity(result?.length);
+	// 	})();
+	// }, [_id]);
 
 	const handleMenu = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -128,18 +138,43 @@ const Navbar = () => {
 						</Link>
 					</CartIcon>
 
-					<CartIcon>
-						<Link
-							to="/cart"
-							style={{ margin: '1rem', textDecoration: 'none', color: 'white' }}
-						>
-							<Badge badgeContent={cartQuantity} color="error">
-								<ShoppingCartOutlinedIcon
-									sx={{ fontSize: { lg: 'large', md: 'medium', xs: 'small' } }}
+					{isAdmin ? (
+						<CartIcon>
+							<Link
+								to="/admintable"
+								style={{
+									margin: '1rem',
+									textDecoration: 'none',
+									color: 'white',
+								}}
+							>
+								<InventoryIcon
+									sx={{
+										fontSize: { lg: 'large', md: 'medium', xs: 'small' },
+									}}
 								/>
-							</Badge>
-						</Link>
-					</CartIcon>
+							</Link>
+						</CartIcon>
+					) : (
+						<CartIcon>
+							<Link
+								to="/cart"
+								style={{
+									margin: '1rem',
+									textDecoration: 'none',
+									color: 'white',
+								}}
+							>
+								<Badge badgeContent={cartQuantity} color="error">
+									<ShoppingCartOutlinedIcon
+										sx={{
+											fontSize: { lg: 'large', md: 'medium', xs: 'small' },
+										}}
+									/>
+								</Badge>
+							</Link>
+						</CartIcon>
+					)}
 				</Right>
 			</Wrapper>
 		</NavContainer>

@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { userRequest } from '../axiosRequest';
 import { useDispatch } from 'react-redux';
+import { useQuery } from 'react-query';
 import {
 	addProductQuantity,
 	deductProductQuantity,
@@ -49,16 +50,21 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
-	const tokenFromRedux = useSelector((state) => state.user.JWT);
-	console.log({ tokenFromRedux });
+	const { JWT, currentUser, _id, isLogin } = useSelector((state) => state.user);
+
+	// console.log({ JWT });
 	const dispatch = useDispatch();
 	const KEY = process.env.REACT_APP_STRIPE;
-	const cart = useSelector((state) => state.cart);
+	const {
+		cart,
+		cart: { products: reduxProducts },
+	} = useSelector((state) => state);
 	const [token, setToken] = useState(null);
 	const [coupon, setCoupon] = useState('');
 	const [isValidCoupon, setIsValidCoupon] = useState(false);
 	const [error, setError] = useState();
-	const [isLogin, setIsLogin] = useState(false);
+	console.log(...reduxProducts);
+	// const [isLogin, setIsLogin] = useState(false);
 	const onToken = (token) => {
 		setToken(token);
 	};
@@ -79,18 +85,59 @@ const Cart = () => {
 			} else setError('Coupon can only use when you purchase over 99$');
 		} else setError('invalid Coupon');
 	};
-	useEffect(() => {
-		const authToken = async () => {
-			try {
-				const res = await userRequest.post('/auth/auth', {});
-				setIsLogin(res.data.auth);
-			} catch (error) {
-				setIsLogin(false);
-				console.log(error);
-			}
+
+	const sendCartToServer = async (products) => {
+		let cartData = {
+			userId: _id,
+			products,
 		};
-		authToken();
-	}, [tokenFromRedux]);
+
+		try {
+			const res = await userRequest.post(`/carts/${_id}`, cartData);
+			console.log(res);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const checkoutHandler = () => {
+		try {
+			reduxProducts.map((products) => {
+				sendCartToServer(products);
+			});
+			alert('please check admin account to see your order');
+		} catch (err) {
+			alert(err);
+		}
+	};
+
+	// useEffect(() => {
+	// 	const authToken = async () => {
+	// 		try {
+	// 			const res = await userRequest.post('/auth/auth', {});
+	// 			setIsLogin(res.data.auth);
+	// 		} catch (error) {
+	// 			setIsLogin(false);
+	// 			console.log(error);
+	// 		}
+	// 	};
+	// 	authToken();
+	// }, [JWT, currentUser, _id]);
+	// useEffect(() => {
+	// 	const fetchCart = async () => {
+	// 		let cartData = {
+	// 			userId: _id,
+	// 			products: {},
+	// 		};
+	// 		try {
+	// 			const res = await userRequest.post(`/carts/${_id}`, { cartData });
+	// 			console.log(res);
+	// 		} catch (error) {
+	// 			console.log(error);
+	// 		}
+	// 	};
+	// 	fetchCart();
+	// }, []);
 
 	return (
 		<Container>
@@ -220,7 +267,7 @@ const Cart = () => {
 							token={onToken}
 							stripeKey={KEY}
 						>
-							<Button disabled={!isLogin}>
+							<Button disabled={!isLogin} onClick={checkoutHandler}>
 								{isLogin ? 'CHECKOUT NOW' : 'LOGIN BEFORE CHECKOUT'}
 							</Button>
 						</StripeCheckout>

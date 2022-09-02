@@ -1,8 +1,13 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { userRequest } from '../axiosRequest';
+import { useQuery } from 'react-query';
 import FindInPageIcon from '@mui/icons-material/FindInPage';
+import { fetchWishList } from '../Redux/apiCall';
+import CircularProgress from '@mui/material/CircularProgress';
+import SyncProblemIcon from '@mui/icons-material/SyncProblem';
 const WishListItem = React.lazy(() => import('../components/WishListItem'));
 
 const Container = styled.ul`
@@ -32,16 +37,39 @@ const NoWishList = (
 );
 const WishList = () => {
 	const wishLists = useSelector((state) => state.wishList.wishLists);
+	// const [results, setResults] = useState([]);
+	// let results = []
+	// const { _id } = useSelector((state) => state.user);
+
+	// const {
+	// 	isLoading,
+	// 	error,
+	// 	data: results,
+	// 	refetch,
+	// } = useQuery('fetchWishList', () => fetchWishList(_id));
+
+	// const {isLoading,error,data}=useQuery{'fetchWishList',()=>fetchWishList(_id)};
+
+	// useEffect(() => {
+	// 	(async () => {
+	// 		const result = await fetchWishList(_id);
+	// 		setResults(result);
+	// 	})();
+	// }, [_id, setResults]);
+	// console.log(results);
 	return (
 		<Container>
-			{wishLists.length !== 0
-				? wishLists?.map((w, k) => (
-						<Suspense key={k} fallback={<div>Loading...</div>}>
+			{/* {isLoading && <CircularProgress color="success" />}
+			{error && <SyncProblemIcon />} */}
+			{wishLists?.length !== 0
+				? wishLists?.map((result, k) => (
+						<Suspense key={k} fallback={<CircularProgress color="success" />}>
 							<WishListItem
-								name={w.name}
-								price={w.price}
-								img={w.img}
-								id={w.id}
+								name={result?.name}
+								price={result?.price}
+								img={result?.img}
+								id={result?.id}
+								// refetch={refetch}
 							></WishListItem>
 						</Suspense>
 				  ))
