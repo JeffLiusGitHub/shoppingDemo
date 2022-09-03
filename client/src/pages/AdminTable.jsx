@@ -38,7 +38,7 @@ import { useSelector } from 'react-redux';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
-		backgroundColor: theme.palette.primary.light,
+		backgroundColor: theme.palette.info.light,
 		color: theme.palette.common.white,
 		fontSize: 20,
 	},
@@ -165,14 +165,14 @@ function EnhancedTableHead(props) {
 		// <Table stickyHeader aria-label="sticky table">
 		<TableHead>
 			<TableRow>
-				<TableCell padding="checkbox">
+				<TableCell padding="checkbox" sx={{ backgroundColor: '#03a9f4' }}>
 					<Checkbox
 						color="primary"
 						indeterminate={numSelected > 0 && numSelected < rowCount}
 						checked={rowCount > 0 && numSelected === rowCount}
 						onChange={onSelectAllClick}
 						inputProps={{
-							'aria-label': 'select all desserts',
+							'aria-label': 'select all user order',
 						}}
 					/>
 				</TableCell>
@@ -212,8 +212,11 @@ EnhancedTableHead.propTypes = {
 	rowCount: PropTypes.number.isRequired,
 };
 
-const EnhancedTableToolbar = (props) => {
-	const { numSelected } = props;
+const EnhancedTableToolbar = ({
+	numSelected,
+	deleteRecordFromServerHandler,
+}) => {
+	// const { numSelected } = props;
 
 	return (
 		<Toolbar
@@ -240,8 +243,8 @@ const EnhancedTableToolbar = (props) => {
 				</Typography>
 			) : (
 				<Typography
-					sx={{ flex: '1 1 100%' }}
-					variant="h6"
+					sx={{ flex: '1 1 100%', fontWeight: 'bold' }}
+					variant="h5"
 					id="tableTitle"
 					component="div"
 				>
@@ -251,7 +254,7 @@ const EnhancedTableToolbar = (props) => {
 
 			{numSelected > 0 ? (
 				<Tooltip title="Delete">
-					<IconButton>
+					<IconButton onClick={deleteRecordFromServerHandler}>
 						<DeleteIcon />
 					</IconButton>
 				</Tooltip>
@@ -266,9 +269,10 @@ const EnhancedTableToolbar = (props) => {
 	);
 };
 
-EnhancedTableToolbar.propTypes = {
-	numSelected: PropTypes.number.isRequired,
-};
+// EnhancedTableToolbar.propTypes = {
+// 	numSelected: PropTypes.number.isRequired,
+// 	deleteRecordFromServerHandler:function
+// };
 
 export default function EnhancedTable() {
 	const [order, setOrder] = React.useState('asc');
@@ -288,8 +292,22 @@ export default function EnhancedTable() {
 				console.log(error);
 			}
 		})();
-	}, []);
-	console.log(data);
+	}, [_id]);
+	// console.log(data);
+	//${_id}/
+	const deleteCart = async (orderId) => {
+		try {
+			const res = await userRequest.delete(`/carts/${orderId}`, {
+				userId: _id,
+			});
+			console.log(res);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+	const deleteRecordFromServerHandler = () => {
+		selected.map((s) => deleteCart(s));
+	};
 
 	const handleRequestSort = (event, property) => {
 		const isAsc = orderBy === property && order === 'asc';
@@ -299,19 +317,19 @@ export default function EnhancedTable() {
 
 	const handleSelectAllClick = (event) => {
 		if (event.target.checked) {
-			const newSelected = data.map((n) => n.userId);
+			const newSelected = data.map((n) => n._id);
 			setSelected(newSelected);
 			return;
 		}
 		setSelected([]);
 	};
 
-	const handleClick = (event, userId) => {
-		const selectedIndex = selected.indexOf(userId);
+	const handleClick = (event, _id) => {
+		const selectedIndex = selected.indexOf(_id);
 		let newSelected = [];
 
 		if (selectedIndex === -1) {
-			newSelected = newSelected.concat(selected, userId);
+			newSelected = newSelected.concat(selected, _id);
 		} else if (selectedIndex === 0) {
 			newSelected = newSelected.concat(selected.slice(1));
 		} else if (selectedIndex === selected.length - 1) {
@@ -325,6 +343,7 @@ export default function EnhancedTable() {
 
 		setSelected(newSelected);
 	};
+	// console.log(selected);
 
 	const handleChangePage = (event, newPage) => {
 		setPage(newPage);
@@ -339,16 +358,19 @@ export default function EnhancedTable() {
 		setDense(event.target.checked);
 	};
 
-	const isSelected = (userId) => selected.indexOf(userId) !== -1;
+	const isSelected = (_id) => selected.indexOf(_id) !== -1;
 
 	// Avoid a layout jump when reaching the last page with empty rows.
 	const emptyRows =
 		page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.length) : 0;
 
 	return (
-		<Box sx={{ width: '100%' }}>
+		<Box sx={{ width: '90%', padding: '5%', backgroundColor: '#f5fafd' }}>
 			<Paper sx={{ width: '100%', mb: 2 }}>
-				<EnhancedTableToolbar numSelected={selected.length} />
+				<EnhancedTableToolbar
+					numSelected={selected.length}
+					deleteRecordFromServerHandler={deleteRecordFromServerHandler}
+				/>
 				<TableContainer>
 					<Table
 						sx={{ minWidth: 750 }}
@@ -369,18 +391,18 @@ export default function EnhancedTable() {
 							{stableSort(data, getComparator(order, orderBy))
 								.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
 								.map((data, index) => {
-									const isItemSelected = isSelected(data.userId);
+									const isItemSelected = isSelected(data._id);
+
 									const labelId = `enhanced-table-checkbox-${index}`;
 
 									return (
 										<StyledTableRow
 											hover
-											onClick={(event) => handleClick(event, data.userId)}
+											onClick={(event) => handleClick(event, data._id)}
 											role="checkbox"
 											aria-checked={isItemSelected}
 											tabIndex={-1}
-											key={index}
-											
+											key={data._id}
 											selected={isItemSelected}
 										>
 											<StyledTableCell padding="checkbox">
@@ -405,8 +427,16 @@ export default function EnhancedTable() {
 												{data.products.name}
 											</StyledTableCell>
 											<StyledTableCell align="left">
-												<div style={{"border": "1px solid rgba(0, 0, 0, 0.4)",'content':'','height':'20px','width':'20px','borderRadius':'50%','backgroundColor':`${data.products.color}`}}></div>
-												
+												<div
+													style={{
+														border: '1px solid rgba(0, 0, 0, 0.4)',
+														content: '',
+														height: '20px',
+														width: '20px',
+														borderRadius: '50%',
+														backgroundColor: `${data.products.color}`,
+													}}
+												></div>
 											</StyledTableCell>
 											<StyledTableCell align="left">
 												{data.products.size}

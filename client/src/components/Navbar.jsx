@@ -124,19 +124,26 @@ const Navbar = () => {
 							</Menu>
 						</div>
 					)}
-
-					<CartIcon>
-						<Link
-							to="/wishlist"
-							style={{ margin: '1rem', textDecoration: 'none', color: 'white' }}
-						>
-							<Badge badgeContent={wishListsQuantity} color="error">
-								<FavoriteBorderIcon
-									sx={{ fontSize: { lg: 'large', md: 'medium', xs: 'small' } }}
-								/>
-							</Badge>
-						</Link>
-					</CartIcon>
+					{isAdmin ? null : (
+						<CartIcon>
+							<Link
+								to="/wishlist"
+								style={{
+									margin: '1rem',
+									textDecoration: 'none',
+									color: 'white',
+								}}
+							>
+								<Badge badgeContent={wishListsQuantity} color="error">
+									<FavoriteBorderIcon
+										sx={{
+											fontSize: { lg: 'large', md: 'medium', xs: 'small' },
+										}}
+									/>
+								</Badge>
+							</Link>
+						</CartIcon>
+					)}
 
 					{isAdmin ? (
 						<CartIcon>
