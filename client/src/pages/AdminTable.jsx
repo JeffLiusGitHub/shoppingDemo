@@ -24,6 +24,7 @@ import { styled } from '@mui/material/styles';
 import { visuallyHidden } from '@mui/utils';
 import { userRequest } from '../axiosRequest';
 import { useSelector } from 'react-redux';
+import { date } from 'yup';
 // function createData(userId, productName, color, size, price, quantity, img) {
 // 	return {
 // 		userId,
@@ -293,13 +294,19 @@ export default function EnhancedTable() {
 			}
 		})();
 	}, [_id]);
-	// console.log(data);
+	console.log(data);
 	//${_id}/
 	const deleteCart = async (orderId) => {
+		console.log(orderId);
 		try {
 			const res = await userRequest.delete(`/carts/${orderId}`, {
 				userId: _id,
 			});
+			setData(
+				data.filter((data) => {
+					return data._id !== orderId;
+				})
+			);
 			console.log(res);
 		} catch (err) {
 			console.log(err);
