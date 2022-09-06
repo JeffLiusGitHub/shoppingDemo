@@ -5,8 +5,6 @@ const Categories = React.lazy(() => import('../components/Categories'));
 
 const Home = () => {
 
-
-	
 	return (
 		<div>
 			<Slider />

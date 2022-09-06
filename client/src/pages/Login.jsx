@@ -19,8 +19,6 @@ import { login } from '../Redux/apiCall';
 const Login = () => {
 	const { isFetching, error } = useSelector((state) => state.user);
 	const dispatch = useDispatch();
-
-
 	const handleSubmit = async (values) => {
 		login(dispatch, values);
 	};

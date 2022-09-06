@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { green } from '@mui/material/colors';
 import SearchIcon from '@mui/icons-material/Search';
@@ -11,7 +11,6 @@ import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import { logOut } from '../Redux/UserSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchWishList } from '../Redux/apiCall';
 import InventoryIcon from '@mui/icons-material/Inventory';
 
 import {
@@ -30,26 +29,14 @@ import {
 
 const Navbar = () => {
 	const [anchorEl, setAnchorEl] = useState(null);
-	const {
-		currentUser: userName,
-		_id,
-		isAdmin,
-	} = useSelector((state) => state.user);
+	const { currentUser: userName, isAdmin } = useSelector((state) => state.user);
 	const dispatch = useDispatch();
 	const cartQuantity = useSelector((state) => state.cart.quantity);
-	// const wishListsQuantity = useSelector((state) => state.wishList.quantity);
-	// const [wishListsQuantity, setWishListsQuantity] = useState();
 	const wishListsQuantity = useSelector((state) => state.wishList.quantity);
 	const handleClose = () => {
 		setAnchorEl(null);
 		dispatch(logOut());
 	};
-	// useEffect(() => {
-	// 	(async () => {
-	// 		const result = await fetchWishList(_id);
-	// 		setWishListsQuantity(result?.length);
-	// 	})();
-	// }, [_id]);
 
 	const handleMenu = (event) => {
 		setAnchorEl(event.currentTarget);

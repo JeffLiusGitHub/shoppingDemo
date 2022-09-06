@@ -3,7 +3,6 @@ import Newsletter from '../components/Newsletter';
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { userRequest } from '../axiosRequest';
-// import useAxiosRequest from '../axiosRequest';
 import { addProductsToCart } from '../Redux/CartSlice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
@@ -67,7 +66,6 @@ const Product = () => {
 					setProductDetails(res.data);
 					console.log(res);
 				} else {
-					// <Redirect to=''></Redirect>
 				}
 			} catch (error) {}
 			if (id) {
@@ -99,9 +97,6 @@ const Product = () => {
 			console.log(error);
 		}
 	};
-
-
-	
 
 	const addToCartHandler = () => {
 		setClick(true);

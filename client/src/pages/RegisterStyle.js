@@ -39,7 +39,6 @@ export const Form = styled.form`
 
 export const Input = styled.input`
 	min-width: 40%;
-	/* margin: 10px 10px 0px 0px; */
 	margin-bottom: 5px;
 	padding: 10px;
 	border-radius: 1px;

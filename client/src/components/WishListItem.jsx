@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+
 import styled from 'styled-components';
 import LoyaltyIcon from '@mui/icons-material/Loyalty';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteFromWishList } from '../Redux/WishListSlice';
 import { Link } from 'react-router-dom';
-import { userRequest } from '../axiosRequest';
 export const Container = styled.li`
 	display: flex;
 	flex-direction: column;
@@ -104,19 +103,10 @@ export const DeleteContainer = styled.div`
 
 const WishListItem = ({ img, name, price, id, refetch }) => {
 	const dispatch = useDispatch();
-	// const { _id } = useSelector((state) => state.user);
 
-	// const DeleteWishListFromServer = async (productId) => {
-	// 	try {
-	// 		const res = await userRequest.delete(`/wishList/${_id}/${productId}`, {});
-	// 		console.log(res);
-	// 	} catch (error) {}
-	// };
 
 	const DeleteFavouriteHandler = (id) => {
 		dispatch(deleteFromWishList(id));
-		// DeleteWishListFromServer(id);
-		// refetch();
 	};
 
 	return (

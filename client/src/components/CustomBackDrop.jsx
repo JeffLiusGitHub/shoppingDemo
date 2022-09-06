@@ -7,7 +7,6 @@ const CustomBackDrop = ({
 	handleToggle,
 	setBackdropOpen,
 }) => {
-	// const [open, setOpen] = React.useState(false);
 	const handleClose = () => {
 		setBackdropOpen(false);
 	};

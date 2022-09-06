@@ -1,13 +1,9 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import React, { Suspense } from 'react';
 
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { userRequest } from '../axiosRequest';
-import { useQuery } from 'react-query';
 import FindInPageIcon from '@mui/icons-material/FindInPage';
-import { fetchWishList } from '../Redux/apiCall';
 import CircularProgress from '@mui/material/CircularProgress';
-import SyncProblemIcon from '@mui/icons-material/SyncProblem';
 const WishListItem = React.lazy(() => import('../components/WishListItem'));
 
 const Container = styled.ul`

@@ -65,7 +65,6 @@ const ProductList = () => {
 			<Suspense fallback={<CircularProgress color="success" />}>
 				<Products category={category} filter={filter} sort={sort} />
 			</Suspense>
-
 			<Newsletter />
 		</Container>
 	);

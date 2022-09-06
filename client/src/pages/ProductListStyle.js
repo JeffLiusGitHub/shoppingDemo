@@ -32,7 +32,6 @@ export const Select = styled.select`
 	border-radius: 4px;
 	border-width: 1.4px;
 	background-color: #00b3120e;
-
 	font-weight: 700;
 	-webkit-box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
 	box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);

@@ -2,11 +2,10 @@ import { Add, Remove } from '@material-ui/icons';
 import Announcement from '../components/Announcement';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { userRequest } from '../axiosRequest';
 import { useDispatch } from 'react-redux';
-import { useQuery } from 'react-query';
 import {
 	addProductQuantity,
 	deductProductQuantity,
@@ -50,7 +49,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 const Cart = () => {
 	const quantity = useSelector((state) => state.cart.quantity);
-	const { JWT, currentUser, _id, isLogin } = useSelector((state) => state.user);
+	const { _id, isLogin } = useSelector((state) => state.user);
 
 	// console.log({ JWT });
 	const dispatch = useDispatch();
@@ -103,41 +102,13 @@ const Cart = () => {
 	const checkoutHandler = () => {
 		try {
 			reduxProducts.map((products) => {
-				sendCartToServer(products);
+				return sendCartToServer(products);
 			});
 			alert('please check admin account to see your order');
 		} catch (err) {
 			alert(err);
 		}
 	};
-
-	// useEffect(() => {
-	// 	const authToken = async () => {
-	// 		try {
-	// 			const res = await userRequest.post('/auth/auth', {});
-	// 			setIsLogin(res.data.auth);
-	// 		} catch (error) {
-	// 			setIsLogin(false);
-	// 			console.log(error);
-	// 		}
-	// 	};
-	// 	authToken();
-	// }, [JWT, currentUser, _id]);
-	// useEffect(() => {
-	// 	const fetchCart = async () => {
-	// 		let cartData = {
-	// 			userId: _id,
-	// 			products: {},
-	// 		};
-	// 		try {
-	// 			const res = await userRequest.post(`/carts/${_id}`, { cartData });
-	// 			console.log(res);
-	// 		} catch (error) {
-	// 			console.log(error);
-	// 		}
-	// 	};
-	// 	fetchCart();
-	// }, []);
 
 	return (
 		<Container>

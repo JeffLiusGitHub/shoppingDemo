@@ -4,7 +4,6 @@ import {
 	Container,
 	Wrapper,
 	Title,
-	// Form,
 	Input,
 	Agreement,
 	Button,

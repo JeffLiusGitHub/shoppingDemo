@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import { Link } from 'react-router-dom';
@@ -56,9 +55,6 @@ const Product = ({ item }) => {
 				<>
 					<Image src={item.img}></Image>
 					<Info>
-						{/* <Icon>
-								<ShoppingCartCheckoutOutlinedIcon />
-							</Icon> */}
 						<Icon>
 							<Search>
 								<Link to={`/product/${item._id}`}>

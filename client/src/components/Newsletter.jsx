@@ -34,7 +34,6 @@ const Newsletter = () => {
 		if (reason === 'clickaway') {
 			return;
 		}
-
 		setOpen(false);
 	};
 	return (

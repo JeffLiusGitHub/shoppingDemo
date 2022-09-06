@@ -3,14 +3,12 @@ import QRcode from 'qrcode';
 import { useEffect, useState } from 'react';
 import Card from '@mui/material/Card';
 import styled from 'styled-components';
-// import { mobile, tablet } from '../responsive';
+
 const Container = styled.div`
-	/* margin-top: 90px; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	/* padding: 30px; */
 	height: 100%;
 	width: 100%;
 `;
@@ -18,13 +16,6 @@ const Title = styled.div`
 	font-size: 20px;
 	font-weight: 600;
 `;
-// const ImageContainer = styled.div`
-// 	height: 80%;
-// 	width: 80%;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// `;
 
 const QRcodeComponent = ({ id }) => {
 	const [src, setSrc] = useState('');

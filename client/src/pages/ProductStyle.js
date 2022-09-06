@@ -23,7 +23,6 @@ export const ImgContainer = styled.div`
 
 export const Image = styled.div`
 	width: 90%;
-	/* height: 80vh; */
 	object-fit: cover;
 	${mobile({ height: '40vh', width: '100%' })}
 `;
@@ -108,8 +107,7 @@ export const ColorDisplayValue = styled.span`
 export const FilterColor = styled.li`
 	width: 20px;
 	height: 20px;
-	/* text-decoration: none; */
-	/* list-style: none; */
+
 	box-sizing: border-box;
 	border-radius: 50%;
 	border: 1px solid rgba(0, 0, 0, 0.4);
